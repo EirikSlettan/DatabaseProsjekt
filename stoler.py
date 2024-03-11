@@ -1,5 +1,10 @@
+from datetime import*
+from time import*
+
+
 def sette_inn_stoler_gamle_scene(file):
-    salnavn = "hovedscenen"
+    salnavn = "gamle scene"
+    
     seter_nr =1
     rad_nr = 1
     f = open(file, "r")
@@ -29,6 +34,7 @@ def sette_inn_stoler_hovedscenen(file):
     rad_nr = 18
     sete_nr = 524 + 1
     salnavn = "hovedscenen"
+    stykkenavn = "Kongsemne"
     f = open(file, "r")
     dato = 0
     omraade = ""
@@ -44,29 +50,35 @@ def sette_inn_stoler_hovedscenen(file):
             #print(line)
             for letter in line: 
                 if letter == "x":
-                    print ("yoloman")
+                    
                     sete_nr -= 1
                     
-                elif letter == "0":
-                    sete_nr -=1
+                #elif letter == "0":
+                    #sete_nr -=1
 
-                    if omraade == "Galleri":
-                        print(f"({None}, {sete_nr}, {omraade}, {salnavn}, ikke solgt)")
+                    #if omraade == "Galleri":
+                        #print(f"({None}, {sete_nr}, {omraade}, {salnavn}, ikke solgt)") #SETE!!
 
-                    else:
-                        print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, ikke solgt)")
+                    #else:
+                        #print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, ikke solgt)") #SETE!!!
 
                     #Insert()
                 elif letter == "1":
+                   
 
                     sete_nr -= 1
                     
                     #Insert()
                     if omraade == "Galleri":
-                        print(f"({None}, {sete_nr}, {omraade}, {salnavn}, solgt)")
+                        #print(f"({None}, {sete_nr}, {omraade}, {salnavn}, solgt)") #SETE!!!
+                        print(f"({1},  {ctime(time())}, {99999999}, billettgruppe, {sete_nr}, {None}, {omraade}, {salnavn}, forestillingsdato, forestillingstid, {stykkenavn})") #BILLETT!!!
+                        
 
                     else:
-                        print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, solgt)")
+                        #print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, solgt)") SETE!!!
+                        #print(f"({1}, {ctime(time())}, {99999999}, billettgruppe, {sete_nr}, {rad_nr}, {omraade}, {salnavn}, forestillingsdato, forestillingstid, {stykkenavn})") #BILLETT!!!
+                        print(f"({ctime(time())}, {stykkenavn})") #FORESTILLING!!
+
 
             if omraade != "Galleri":
                 rad_nr -= 1
