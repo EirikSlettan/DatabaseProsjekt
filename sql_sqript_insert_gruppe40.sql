@@ -76,5 +76,3 @@ INSERT INTO harrolle VALUES (12, 12);
 
 
 
-
-
