@@ -1,5 +1,6 @@
 from datetime import*
 from time import*
+from insert_into import*
 
 
 def sette_inn_stoler_gamle_scene(file):
@@ -35,6 +36,8 @@ def sette_inn_stoler_hovedscenen(file):
     sete_nr = 524 + 1
     salnavn = "hovedscenen"
     stykkenavn = "Kongsemne"
+    forfatter = "Henrik Ibsen"
+    sesong = "vinter/vaar"
     f = open(file, "r")
     dato = 0
     omraade = ""
@@ -53,14 +56,18 @@ def sette_inn_stoler_hovedscenen(file):
                     
                     sete_nr -= 1
                     
-                #elif letter == "0":
-                    #sete_nr -=1
+                elif letter == "0":
+                    sete_nr -=1
 
-                    #if omraade == "Galleri":
-                        #print(f"({None}, {sete_nr}, {omraade}, {salnavn}, ikke solgt)") #SETE!!
+                    if omraade == "Galleri":
+                        sete_ledig_galleri = f"({sete_nr}, {None}, {omraade}, {salnavn}, solgt)" #SETE!!!
+                        sete_ledig_galleri = sete_ledig_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        insert_into_table("billett", sete_ledig_galleri)
 
-                    #else:
-                        #print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, ikke solgt)") #SETE!!!
+                    else:
+                        sete_ledig_parkett = f"({sete_nr}, {rad_nr}, {omraade}, {salnavn}, solgt)" #SETE!!!
+                        sete_ledig_parkett = sete_ledig_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        insert_into_table("billett", sete_ledig_parkett)
 
                     #Insert()
                 elif letter == "1":
@@ -70,18 +77,47 @@ def sette_inn_stoler_hovedscenen(file):
                     
                     #Insert()
                     if omraade == "Galleri":
-                        #print(f"({None}, {sete_nr}, {omraade}, {salnavn}, solgt)") #SETE!!!
-                        print(f"({1},  {ctime(time())}, {99999999}, billettgruppe, {sete_nr}, {None}, {omraade}, {salnavn}, forestillingsdato, forestillingstid, {stykkenavn})") #BILLETT!!!
+                        
+
+                        sete_opptatt_galleri = f"({sete_nr}, {None}, {omraade}, {salnavn}, solgt)" #SETE!!!
+                        sete_opptatt_galleri = sete_opptatt_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        insert_into_table("billett", sete_opptatt_galleri)
+                        
+
+                        billett_galleri = f"({1}, {ctime(time())}, {99999999}, billettgruppe, {sete_nr}, {None}, {omraade}, {salnavn}, forestillingsdato, forestillingstid, {stykkenavn})" #BILLETT!!!
+                        billett_galleri = billett_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        insert_into_table("billett", billett_galleri)
+                        
                         
 
                     else:
                         #print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, solgt)") SETE!!!
-                        #print(f"({1}, {ctime(time())}, {99999999}, billettgruppe, {sete_nr}, {rad_nr}, {omraade}, {salnavn}, forestillingsdato, forestillingstid, {stykkenavn})") #BILLETT!!!
-                        print(f"({ctime(time())}, {stykkenavn})") #FORESTILLING!!
 
+                        sete_opptatt_parkett = f"({sete_nr}, {rad_nr}, {omraade}, {salnavn}, solgt)" #SETE!!!
+                        sete_opptatt_parkett = sete_opptatt_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        insert_into_table("billett", sete_opptatt_parkett)
+                        
+                        
+                        billett_parkett = f"({1}, {ctime(time())}, {99999999}, billettgruppe, {sete_nr}, {rad_nr}, {omraade}, {salnavn}, forestillingsdato, forestillingstid, {stykkenavn})" #BILLETT!!!
+                        billett_parkett = billett_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        insert_into_table("billett", billett_parkett)
+                        
+                        
+
+
+                        
 
             if omraade != "Galleri":
                 rad_nr -= 1
+
+    forestilling = (f"({ctime(time())}, {stykkenavn})") #FORESTILLING!!
+    forestilling = forestilling.replace("(", "").replace(")", "").strip().split(",")
+    insert_into_table("forestilling", forestilling)
+
+
+    teaterstykke = (f"({stykkenavn},{forfatter},{sesong})") #teaterstykke
+    teaterstykke = teaterstykke.replace("(", "").replace(")", "").strip().split(",")
+    insert_into_table("teaterstykke", teaterstykke) #det er kun ett teaterstykke her
             
 sette_inn_stoler_hovedscenen("hovedscenen.txt")
 
