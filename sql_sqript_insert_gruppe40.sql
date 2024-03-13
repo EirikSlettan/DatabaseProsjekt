@@ -1,6 +1,12 @@
 --Kongsemnene
 INSERT INTO teaterstykke VALUES ('Kongsemnene', 'Henrik Ibsen', 'V2024');
 
+INSERT INTO forestilling VALUES ('2024-02-01', '19:00:00', 'Kongsemne');
+INSERT INTO forestilling VALUES ('2024-02-02', '19:00:00', 'Kongsemne');
+INSERT INTO forestilling VALUES ('2024-02-03', '19:00:00', 'Kongsemne');
+INSERT INTO forestilling VALUES ('2024-02-05', '19:00:00', 'Kongsemne');
+INSERT INTO forestilling VALUES ('2024-02-06', '19:00:00', 'Kongsemne');
+
 INSERT INTO akter VALUES (1, 'Akt1', 'Kongsemnene');
 INSERT INTO akter VALUES (2, 'Akt2', 'Kongsemnene');
 INSERT INTO akter VALUES (3, 'Akt3', 'Kongsemnene');
@@ -87,9 +93,24 @@ INSERT INTO aktharrolle VALUES (11, 4, 'Kongsemnene');
 INSERT INTO aktharrolle VALUES (11, 5, 'Kongsemnene');
 
 
+INSERT INTO billettgruppe VALUES ('Ordinær', 450, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Honnær', 380, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Student', 280, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Gruppe 10', 420, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Gruppe honnør 10', 360, 'Kongsemnene');
+
+
 --Storst av alt er kjaerligheten
 
 INSERT INTO teaterstykke VALUES ('Storst av alt er kjaerligheten', 'Jonas Corell Petersen', 'V2024');
+
+INSERT INTO forestilling VALUES ('2024-02-03', '18:30:00', 'Storst av alt er kjaerligheten');
+INSERT INTO forestilling VALUES ('2024-02-06', '18:30:00', 'Storst av alt er kjaerligheten');
+INSERT INTO forestilling VALUES ('2024-02-07', '18:30:00', 'Storst av alt er kjaerligheten');
+INSERT INTO forestilling VALUES ('2024-02-12', '18:30:00', 'Storst av alt er kjaerligheten');
+INSERT INTO forestilling VALUES ('2024-02-13', '18:30:00', 'Storst av alt er kjaerligheten');
+INSERT INTO forestilling VALUES ('2024-02-14', '18:30:00', 'Storst av alt er kjaerligheten');
+
 INSERT INTO akter VALUES (1, 'Hovedakt', 'Storst av alt er kjaerligheten');
 
 INSERT INTO ansatt VALUES (17, 'Sunniva Du Mond Nordal', 'sunniva.du.mond.nordal@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
@@ -104,6 +125,20 @@ INSERT INTO ansatt VALUES (25, 'David Gehrt', 'david.gehrt@trondelagteater.no', 
 INSERT INTO ansatt VALUES (26, 'Gaute Tønder', 'gaute.tønder@trondelagteater.no', 'fast ansatt', 0, 'Musikalsk ansvarlig');
 INSERT INTO ansatt VALUES (27, 'Magnus Mikaelsen', 'magnus.mikaelsen@trondelagteater.no', 'fast ansatt', 0, 'Lysdesign');
 INSERT INTO ansatt VALUES (28, 'Kristoffer Spender', 'kristoffer.spender@trondelagteater.no', 'fast ansatt', 0, 'Dramaturg');
+
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 17);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 18);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 19);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 20);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 21);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 22);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 23);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 24);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 25);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 26);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 27);
+INSERT INTO jobbermed VALUES ('Storst av alt er kjaerligheten', 28);
+
 
 INSERT INTO rolle VALUES (16, 'Sunniva Du Mond Nordal');
 INSERT INTO rolle VALUES (17, 'Jo Saberniak');
@@ -120,6 +155,13 @@ INSERT INTO harrolle VALUES (20, 19);
 INSERT INTO harrolle VALUES (21, 20);
 INSERT INTO harrolle VALUES (22, 21);
 INSERT INTO harrolle VALUES (23, 22);
+
+INSERT INTO billettgruppe VALUES ('Ordinær', 350, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Honnær', 300, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Student', 220, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Barn', 220, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Gruppe 10', 320, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Gruppe honnør 10', 270, 'Storst av alt er kjaerligheten');
 
 
 

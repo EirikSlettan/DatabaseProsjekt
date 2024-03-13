@@ -69,7 +69,9 @@ create table sal(
 create table billettgruppe(
     gruppe varchar(30) not null,
     pris integer not null,
-    constraint billettgruppe_pk primary key (gruppe)
+    stykkenavn Varchar(30) not null,
+    constraint billetgruppe_fk foreign key (stykkenavn) references teaterstykke(navn)
+    constraint billettgruppe_pk primary key (gruppe, stykkenavn)
 );
 
 create table harbillettgruppe(
