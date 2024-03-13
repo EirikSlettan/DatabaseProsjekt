@@ -1,6 +1,28 @@
 --Kongsemnene
 INSERT INTO teaterstykke VALUES ('Kongsemnene', 'Henrik Ibsen', 'V2024');
 
+INSERT INTO sal VALUES ('Gamle scene', 332, 'Storst av alt er kjaerligheten');
+INSERT INTO sal VALUES ('Hovedscenen', 516, 'Kongsemnene' );
+
+INSERT INTO harbillettgruppe VALUES ('Ordinaer', 'Kongsemnene');
+INSERT INTO harbillettgruppe VALUES ('Honnor', 'Kongsemnene');
+INSERT INTO harbillettgruppe VALUES ('Student', 'Kongsemnene');
+INSERT INTO harbillettgruppe VALUES ('Gruppe 10', 'Kongsemnene');
+INSERT INTO harbillettgruppe VALUES ('Gruppe honnor ', 'Kongsemnene');
+
+INSERT INTO harbillettgruppe VALUES ('Ordinaer', 'Storst av alt er kjaerligheten');
+INSERT INTO harbillettgruppe VALUES ('Honnor', 'Storst av alt er kjaerligheten');
+INSERT INTO harbillettgruppe VALUES ('Student', 'Storst av alt er kjaerligheten');
+INSERT INTO harbillettgruppe VALUES ('Gruppe 10', 'Storst av alt er kjaerligheten');
+INSERT INTO harbillettgruppe VALUES ('Gruppe honnor', 'Storst av alt er kjaerligheten');
+INSERT INTO harbillettgruppe VALUES ('Barn', 'Storst av alt er kjaerligheten');
+
+
+
+
+
+INSERT INTO kundeprofil VALUES (99999999, 'Ola Nordmann', 'Test veien 13b');
+
 INSERT INTO forestilling VALUES ('2024-02-01', '19:00:00', 'Kongsemnene');
 INSERT INTO forestilling VALUES ('2024-02-02', '19:00:00', 'Kongsemnene');
 INSERT INTO forestilling VALUES ('2024-02-03', '19:00:00', 'Kongsemnene');
@@ -100,14 +122,50 @@ INSERT INTO aktharrolle VALUES (6, 5, 'Kongsemnene');
 
 INSERT INTO aktharrolle VALUES (7, 4, 'Kongsemnene'); --Ingebjørg
 
-INSERT INTO aktharrolle VALUES (7, 1, 'Kongsemnene'); --Guttorm
+INSERT INTO aktharrolle VALUES (3, 1, 'Kongsemnene'); --Jarl
+INSERT INTO aktharrolle VALUES (3, 2, 'Kongsemnene'); --Jarl
+INSERT INTO aktharrolle VALUES (3, 3, 'Kongsemnene'); --Jarl
+INSERT INTO aktharrolle VALUES (3, 4, 'Kongsemnene'); --Jarl
+INSERT INTO aktharrolle VALUES (3, 5, 'Kongsemnene'); --Jarl
+
+INSERT INTO aktharrolle VALUES (2, 1, 'Kongsemnene'); --Inga
+INSERT INTO aktharrolle VALUES (2, 3, 'Kongsemnene'); --Inga
+
+INSERT INTO aktharrolle VALUES (10, 1, 'Kongsemnene'); --Paal
+INSERT INTO aktharrolle VALUES (10, 2, 'Kongsemnene'); --Paal
+INSERT INTO aktharrolle VALUES (10, 3, 'Kongsemnene'); --Paal
+INSERT INTO aktharrolle VALUES (10, 4, 'Kongsemnene'); --Paal
+INSERT INTO aktharrolle VALUES (10, 5, 'Kongsemnene'); --Paal
+
+INSERT INTO aktharrolle VALUES (4, 1, 'Kongsemnene'); --Ragnhild
+INSERT INTO aktharrolle VALUES (4, 5, 'Kongsemnene'); --Ragnhild
+
+INSERT INTO aktharrolle VALUES (9, 1, 'Kongsemnene'); --Gregorius
+INSERT INTO aktharrolle VALUES (9, 2, 'Kongsemnene'); --Gregorius
+INSERT INTO aktharrolle VALUES (9, 3, 'Kongsemnene'); --Gregorius
+INSERT INTO aktharrolle VALUES (9, 4, 'Kongsemnene'); --Gregorius
+INSERT INTO aktharrolle VALUES (9, 5, 'Kongsemnene'); --Gregorius
+
+INSERT INTO aktharrolle VALUES (5, 1, 'Kongsemnene'); --Margrete
+INSERT INTO aktharrolle VALUES (5, 2, 'Kongsemnene'); --Margrete
+INSERT INTO aktharrolle VALUES (5, 3, 'Kongsemnene'); --Margrete
+INSERT INTO aktharrolle VALUES (5, 4, 'Kongsemnene'); --Margrete
+INSERT INTO aktharrolle VALUES (5, 5, 'Kongsemnene'); --Margrete
+
+INSERT INTO aktharrolle VALUES (8, 1, 'Kongsemnene'); --Nikolas
+INSERT INTO aktharrolle VALUES (8, 2, 'Kongsemnene'); --Nikolas
+INSERT INTO aktharrolle VALUES (8, 3, 'Kongsemnene'); --Nikolas
+
+INSERT INTO aktharrolle VALUES (15, 3, 'Kongsemnene'); --Peter
+INSERT INTO aktharrolle VALUES (15, 4, 'Kongsemnene'); --Peter
+INSERT INTO aktharrolle VALUES (15, 5, 'Kongsemnene'); --Peter
 
 
 INSERT INTO billettgruppe VALUES ('Ordinær', 450, 'Kongsemnene');
-INSERT INTO billettgruppe VALUES ('Honnær', 380, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Honnor', 380, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Student', 280, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Gruppe 10', 420, 'Kongsemnene');
-INSERT INTO billettgruppe VALUES ('Gruppe honnør 10', 360, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Gruppe honnor 10', 360, 'Kongsemnene');
 
 
 --Storst av alt er kjaerligheten
@@ -122,6 +180,14 @@ INSERT INTO forestilling VALUES ('2024-02-13', '18:30:00', 'Storst av alt er kja
 INSERT INTO forestilling VALUES ('2024-02-14', '18:30:00', 'Storst av alt er kjaerligheten');
 
 INSERT INTO akter VALUES (1, 'Hovedakt', 'Storst av alt er kjaerligheten');
+
+INSERT INTO aktharrolle VALUES (16, 1, 'Storst av alt er kjaerligheten');
+INSERT INTO aktharrolle VALUES (17, 1, 'Storst av alt er kjaerligheten');
+INSERT INTO aktharrolle VALUES (18, 1, 'Storst av alt er kjaerligheten');
+INSERT INTO aktharrolle VALUES (19, 1, 'Storst av alt er kjaerligheten');
+INSERT INTO aktharrolle VALUES (20, 1, 'Storst av alt er kjaerligheten');
+INSERT INTO aktharrolle VALUES (21, 1, 'Storst av alt er kjaerligheten');
+INSERT INTO aktharrolle VALUES (22, 1, 'Storst av alt er kjaerligheten');
 
 INSERT INTO ansatt VALUES (17, 'Sunniva Du Mond Nordal', 'sunniva.du.mond.nordal@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
 INSERT INTO ansatt VALUES (18, 'Jo Saberniak', 'jo.saberniak@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
@@ -167,11 +233,11 @@ INSERT INTO harrolle VALUES (22, 21);
 INSERT INTO harrolle VALUES (23, 22);
 
 INSERT INTO billettgruppe VALUES ('Ordinær', 350, 'Storst av alt er kjaerligheten');
-INSERT INTO billettgruppe VALUES ('Honnær', 300, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Honnor', 300, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Student', 220, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Barn', 220, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Gruppe 10', 320, 'Storst av alt er kjaerligheten');
-INSERT INTO billettgruppe VALUES ('Gruppe honnør 10', 270, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Gruppe honnor 10', 270, 'Storst av alt er kjaerligheten');
 
 
 

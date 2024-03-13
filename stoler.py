@@ -17,6 +17,8 @@ def sette_inn_stoler_gamle_scene(file):
     forestillingstid = "18:30:00"
     billettgruppe = "Ordinaer"
     billettID = 1
+    billett_kjop = [kjopsdato, kjopstid, 99999999]
+    insert_into_table("billettkjop", billett_kjop)
     
     f = open(file, "r")
     omraade = ""
@@ -93,18 +95,19 @@ def sette_inn_stoler_gamle_scene(file):
                         
                         
 
-                
 def sette_inn_stoler_hovedscenen(file):
     rad_nr = 18
     sete_nr = 524 + 1
-    salnavn = "hovedscenen"
+    salnavn = "Hovedscenen"
     stykkenavn = "Kongsemne"
     kjopsdato = "2024-03-12"
-    kjopstid = "00:00:00"
+    kjopstid = "00:00:01"
     forestillingsdato = 0
     forestillingstid = "19:00:00"
     billettgruppe = "Ordinaer"
     billettID = 28
+    billett_kjop = [kjopsdato, kjopstid, 99999999]
+    insert_into_table("billettkjop", billett_kjop)
     f = open(file, "r")
     omraade = ""
     for line in f:
