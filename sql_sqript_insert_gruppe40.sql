@@ -93,8 +93,8 @@ INSERT INTO aktharrolle VALUES (11, 4, 'Kongsemnene');
 INSERT INTO aktharrolle VALUES (11, 5, 'Kongsemnene');
 
 
-INSERT INTO billettgruppe VALUES ('Ordinaer', 450, 'Kongsemnene');
-INSERT INTO billettgruppe VALUES ('Honnaer', 380, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Ordinær', 450, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Honnær', 380, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Student', 280, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Gruppe 10', 420, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Gruppe honnør 10', 360, 'Kongsemnene');
@@ -162,8 +162,6 @@ INSERT INTO billettgruppe VALUES ('Student', 220, 'Storst av alt er kjaerlighete
 INSERT INTO billettgruppe VALUES ('Barn', 220, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Gruppe 10', 320, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Gruppe honnør 10', 270, 'Storst av alt er kjaerligheten');
-
-
 
 
 

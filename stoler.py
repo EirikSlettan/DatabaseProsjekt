@@ -18,9 +18,6 @@ def sette_inn_stoler_gamle_scene(file):
     billettgruppe = "Ordinaer"
     billettID = 1
     
-    
-    # Other variable definitions...
-    
     f = open(file, "r")
     omraade = ""
     for line in f:
@@ -31,29 +28,22 @@ def sette_inn_stoler_gamle_scene(file):
         elif line.isalpha(): 
             omraade = line
 
-           
-        
-
         else:
             line = line[::-1]
             sete_nr = len(line) + 1
 
             if omraade == "Galleri":
-
                 galleri_rad_nr -= 1
             
             elif omraade == "Balkong":
-
                 balkong_rad_nr -= 1
             
             elif omraade == "Parkett":
-
                 parkett_rad_nr -= 1
 
             for letter in line: 
                 
                 if letter == "x":
-                    
                     sete_nr -= 1
                     
                 elif letter == "0":
@@ -61,72 +51,43 @@ def sette_inn_stoler_gamle_scene(file):
                     if omraade == "Galleri":
                         sete_nr -=1
 
-                        sete_ledig_galleri = f"({sete_nr}, {galleri_rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_ledig_galleri = sete_ledig_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] #SETE!!!
                         insert_into_table("sete", sete_ledig_galleri)
                     
                     elif omraade == "Balkong":
                         sete_nr -=1
 
-                        sete_ledig_balkong = f"({sete_nr}, {balkong_rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_ledig_balkong = sete_ledig_balkong.replace("(", "").replace(")", "").strip().split(",")
+                        sete_ledig_balkong = [sete_nr, balkong_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_balkong)
                     
                     elif omraade == "Parkett":
                         sete_nr -=1
 
-                        sete_ledig_parkett = f"({sete_nr}, {parkett_rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_ledig_parkett = sete_ledig_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        sete_ledig_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
 
-                    #Insert()
                 elif letter == "1":
-                   
-
                     sete_nr -= 1
-                    
-                    #Insert()
                     if omraade == "Galleri":
-                        
-
-                        sete_opptatt_galleri = f"({sete_nr}, {galleri_rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_opptatt_galleri = sete_opptatt_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        sete_opptatt_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
-                        
-
-                        billett_galleri = f"({billettID}, {kjopsdato}, {kjopstid}, {99999999}, {billettgruppe}, {sete_nr}, {galleri_rad_nr}, {omraade}, {salnavn}, {forestillingsdato}, {forestillingstid}, {stykkenavn})" #BILLETT!!!
-                        billett_galleri = billett_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe,sete_nr, galleri_rad_nr,omraade,salnavn,forestillingsdato,forestillingstid,stykkenavn]
                         insert_into_table("billett", billett_galleri)
-
                         billettID += 1
                     
                     elif omraade == "Balkong":
-
-                        
-
-                        sete_opptatt_balkong = f"({sete_nr}, {balkong_rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_opptatt_balkong = sete_opptatt_balkong.replace("(", "").replace(")", "").strip().split(",")
+                        sete_opptatt_balkong = [sete_nr,balkong_rad_nr,omraade,salnavn] 
                         insert_into_table("sete", sete_opptatt_balkong)
                         
-
-                        billett_balkong = f"({billettID}, {kjopsdato}, {kjopstid}, {99999999}, {billettgruppe}, {sete_nr}, {balkong_rad_nr}, {omraade}, {salnavn}, {forestillingsdato}, {forestillingstid}, {stykkenavn})" #BILLETT!!!
-                        billett_balkong = billett_balkong.replace("(", "").replace(")", "").strip().split(",")
+                        billett_balkong = [billettID,kjopsdato,kjopstid,99999999,billettgruppe,sete_nr,balkong_rad_nr,omraade,salnavn,forestillingsdato,forestillingstid,stykkenavn] 
                         insert_into_table("billett", billett_balkong)
-
                         billettID += 1
                     
                     elif omraade == "Parkett":
-                        
-
-                        sete_opptatt_parkett = f"({sete_nr}, {parkett_rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_opptatt_parkett = sete_opptatt_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        sete_opptatt_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn]
                         insert_into_table("sete", sete_opptatt_parkett)
-                        
-
-                        billett_parkett = f"({billettID}, {kjopsdato}, {kjopstid}, {99999999}, {billettgruppe}, {sete_nr}, {parkett_rad_nr}, {omraade}, {salnavn}, {forestillingsdato}, {forestillingstid}, {stykkenavn})" #BILLETT!!!
-                        billett_parkett = billett_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        billett_parkett = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, parkett_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn]
                         insert_into_table("billett", billett_parkett)
-
                         billettID += 1
 
                         
@@ -155,67 +116,38 @@ def sette_inn_stoler_hovedscenen(file):
             omraade = line
         else:
             line = line[::-1]
-            #print(line)
             for letter in line: 
                 if letter == "x":
-                    
                     sete_nr -= 1
                     
                 elif letter == "0":
                     sete_nr -=1
 
                     if omraade == "Galleri":
-                        sete_ledig_galleri = f"({sete_nr}, {None}, {omraade}, {salnavn})" #SETE!!!
-                        sete_ledig_galleri = sete_ledig_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        sete_ledig_galleri = [sete_nr, 'None', omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
 
                     else:
-                        sete_ledig_parkett = f"({sete_nr}, {rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_ledig_parkett = sete_ledig_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        sete_ledig_parkett = [sete_nr, rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
-
-                    #Insert()
                 elif letter == "1":
-                   
-
                     sete_nr -= 1
-                    
-                    #Insert()
                     if omraade == "Galleri":
-                        
-
-                        sete_opptatt_galleri = f"({sete_nr}, {None}, {omraade}, {salnavn})" #SETE!!!
-                        sete_opptatt_galleri = sete_opptatt_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        sete_opptatt_galleri = [sete_nr, 'None', omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
-                        
-
-                        billett_galleri = f"({billettID}, {kjopsdato}, {kjopstid}, {99999999}, {billettgruppe}, {sete_nr}, {None}, {omraade}, {salnavn}, {forestillingsdato}, {forestillingstid}, {stykkenavn})" #BILLETT!!!
-                        billett_galleri = billett_galleri.replace("(", "").replace(")", "").strip().split(",")
+                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, 'None', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
-
                         billettID += 1
                         
-                        
-
                     else:
-                        #print(f"({rad_nr}, {sete_nr}, {omraade}, {salnavn}, solgt)") SETE!!!
-
-                        sete_opptatt_parkett = f"({sete_nr}, {rad_nr}, {omraade}, {salnavn})" #SETE!!!
-                        sete_opptatt_parkett = sete_opptatt_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        sete_opptatt_parkett = [sete_nr, rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_parkett)
                         
                         
-                        billett_parkett = f"({billettID}, {kjopsdato}, {kjopstid}, {99999999}, {billettgruppe}, {sete_nr}, {rad_nr}, {omraade}, {salnavn}, {forestillingsdato}, {forestillingstid}, {stykkenavn})" #BILLETT!!!
-                        billett_parkett = billett_parkett.replace("(", "").replace(")", "").strip().split(",")
+                        billett_parkett = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_parkett)
 
                         billettID += 1
-                        
-                        
-
-
-                        
-
             if omraade != "Galleri":
                 rad_nr -= 1
 
