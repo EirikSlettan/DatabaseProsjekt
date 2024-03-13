@@ -34,28 +34,14 @@ hvilke skuespilllere de har spilt med i samme akt. Skriv ut navn på begge og
 hvilket skuespill det skjedde.
 
 
-SELECT DISTINCT a1.navn AS navn,
-       akter.aktnr,
-       akter.stykkenavn AS teaterstykke
-
-FROM ansatt AS a1, ansatt AS a2
-INNER JOIN harrolle as hr ON a1.ansattID = hr.ansattID
-        AND a2.ansattID = hr.ansattID
-INNER JOIN rolle ON rolle.rolleID = hr.rolleID
-INNER JOIN aktharrolle as ar ON ar.rolleID = rolle.rolleID
-INNER JOIN akter ON akter.aktnr = ar.aktnr
-        AND akter.stykkenavn = ar.stykkenavn
-INNER JOIN a2 ON ansattID = hr.ansattID
-
-WHERE a1.ansattID != a2.ansattID
-
-
-
-
-
-FROM skuespiller s1
-JOIN akter a1 ON s1.skuespillerID = a1.skuespillerID
-JOIN akter a2 ON a1.teaterstykkeID = a2.teaterstykkeID
-JOIN skuespiller s2 ON a2.skuespillerID = s2.skuespillerID
-JOIN teaterstykke t ON a1.teaterstykkeID = t.teaterstykkeID
-WHERE s1.navn = 'Skuespiller A' AND s2.navn != 'Skuespiller A';
+SELECT DISTINCT a1.navn AS skuespiller1, a2.navn AS skuespiller2, akter.stykkenavn AS skuespill
+FROM ansatt AS a1
+INNER JOIN harrolle AS hr1 ON a1.ansattID = hr1.ansattID
+INNER JOIN rolle AS r1 ON hr1.rolleID = r1.rolleID
+INNER JOIN aktharrolle AS ahr1 ON r1.rolleID = ahr1.rolleID
+INNER JOIN akter ON ahr1.aktnr = akter.aktnr AND ahr1.stykkenavn = akter.stykkenavn
+INNER JOIN aktharrolle AS ahr2 ON akter.aktnr = ahr2.aktnr AND akter.stykkenavn = ahr2.stykkenavn
+INNER JOIN rolle AS r2 ON ahr2.rolleID = r2.rolleID
+INNER JOIN harrolle AS hr2 ON r2.rolleID = hr2.rolleID
+INNER JOIN ansatt AS a2 ON hr2.ansattID = a2.ansattID
+WHERE a1.navn = 'skuespillernavn' AND a1.navn != a2.navn;
