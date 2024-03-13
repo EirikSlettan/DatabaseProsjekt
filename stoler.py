@@ -11,8 +11,6 @@ def sette_inn_stoler_gamle_scene(file):
     sete_nr = 0
     salnavn = "Gamle scene"
     stykkenavn = "Størst av alt er kjaerligheten"
-    forfatter = "Jonas Corell Petersen"
-    sesong = "vinter/vaar"
     kjopsdato = "2024-03-12"
     kjopstid = "00:00:00"
     forestillingsdato = 0
@@ -131,15 +129,6 @@ def sette_inn_stoler_gamle_scene(file):
 
                         billettID += 1
 
-
-    forestilling = (f"({forestillingsdato}, {forestillingstid}, {stykkenavn})") #FORESTILLING!!
-    forestilling = forestilling.replace("(", "").replace(")", "").strip().split(",")
-    insert_into_table("forestilling", forestilling)
-
-
-    teaterstykke = (f"({stykkenavn},{forfatter},{sesong})") #teaterstykke
-    teaterstykke = teaterstykke.replace("(", "").replace(")", "").strip().split(",")
-    insert_into_table("teaterstykke", teaterstykke) #det er kun ett teaterstykke her
                         
                         
 
@@ -149,8 +138,6 @@ def sette_inn_stoler_hovedscenen(file):
     sete_nr = 524 + 1
     salnavn = "hovedscenen"
     stykkenavn = "Kongsemne"
-    forfatter = "Henrik Ibsen"
-    sesong = "vinter/vaar"
     kjopsdato = "2024-03-12"
     kjopstid = "00:00:00"
     forestillingsdato = 0
@@ -233,14 +220,6 @@ def sette_inn_stoler_hovedscenen(file):
                 rad_nr -= 1
 
 
-    forestilling = (f"({forestillingsdato}, {forestillingstid}, {stykkenavn})") #FORESTILLING!!
-    forestilling = forestilling.replace("(", "").replace(")", "").strip().split(",")
-    insert_into_table("forestilling", forestilling)
-
-
-    teaterstykke = (f"({stykkenavn},{forfatter},{sesong})") #teaterstykke
-    teaterstykke = teaterstykke.replace("(", "").replace(")", "").strip().split(",")
-    insert_into_table("teaterstykke", teaterstykke) #det er kun ett teaterstykke her
 
 
 
