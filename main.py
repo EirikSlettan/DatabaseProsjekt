@@ -10,10 +10,10 @@ print("-"*bredde)
 
 
 a = input("Ønsker du å gjøre oppgave 7?")
-b = input("hvilken skuespiller?")
+
 
 if a == "ja":
-
+    b = input("hvilken skuespiller?")
     find_actor(b)
 
 

@@ -1,5 +1,10 @@
 import sqlite3
 
+def print_result(result):
+   for row in result:
+       print(f"{row[0]} {row[1]} {row[2]}")
+    
+
 def find_actor(navn):
     con = sqlite3.connect("test1.db") #Endre dette
     cursor = con.cursor()
@@ -16,8 +21,7 @@ INNER JOIN ansatt AS a2 ON hr2.ansattID = a2.ansattID
 WHERE a1.navn != a2.navn AND a1.navn = ?;''', (navn,))
     print(f"Alle skuespillere som deler en akt med {navn} er:")
     
-    for row in cursor.fetchall():
-        print(row)
+    print_result(cursor.fetchall())
 
 
 
