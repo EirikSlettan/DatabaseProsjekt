@@ -13,7 +13,7 @@ INNER JOIN harrolle ON rolle.rolleID = harrolle.rolleID
 INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 
---Oppgave 6
+oppgave 6
 
  SELECT dato, 
         tid, 
@@ -35,15 +35,20 @@ hvilket skuespill det skjedde.
 
 
 SELECT DISTINCT a1.navn AS navn,
-       
+       akter.aktnr,
        akter.stykkenavn AS teaterstykke
 
-FROM ansatt as a1
+FROM ansatt AS a1, ansatt AS a2
 INNER JOIN harrolle as hr ON a1.ansattID = hr.ansattID
+        AND a2.ansattID = hr.ansattID
 INNER JOIN rolle ON rolle.rolleID = hr.rolleID
 INNER JOIN aktharrolle as ar ON ar.rolleID = rolle.rolleID
 INNER JOIN akter ON akter.aktnr = ar.aktnr
         AND akter.stykkenavn = ar.stykkenavn
+INNER JOIN a2 ON ansattID = hr.ansattID
+
+WHERE a1.ansattID != a2.ansattID
+
 
 
 
