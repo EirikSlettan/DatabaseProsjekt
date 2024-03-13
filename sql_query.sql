@@ -25,3 +25,11 @@ oppgave 6
  AND forestillingstid = tid AND stykkenavn = teaterstykke) 
  GROUP by teaterstykke, dato, tid  
  ORDER BY solgt DESC;
+
+ --Oppgave 6
+
+  SELECT dato, tid, count(billettID) AS solgt, stykkenavn 
+  FROM (forestilling INNER JOIN billett ON forestillingsdato = dato 
+  AND forestillingstid = tid AND stykkenavn = teaterstykke) 
+  GROUP by teaterstykke, dato, tid  
+  ORDER BY solgt DESC;
