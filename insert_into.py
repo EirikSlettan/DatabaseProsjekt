@@ -18,4 +18,4 @@ def insert_into_table(table, values): #Tar inn string for tabellnavn, og liste f
         con.commit()
         con.close()
     except Exception as e:
-        print("Noe gikk galt: ", e)
+        print("Noe gikk galt: ", e, table, values)
