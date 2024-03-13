@@ -10,7 +10,7 @@ def sette_inn_stoler_gamle_scene(file):
     parkett_rad_nr = 11
     sete_nr = 0
     salnavn = "Gamle scene"
-    stykkenavn = "Størst av alt er kjaerligheten"
+    stykkenavn = "Storst av alt er kjaerligheten"
     kjopsdato = "2024-03-12"
     kjopstid = "00:00:00"
     forestillingsdato = 0
