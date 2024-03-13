@@ -1,4 +1,4 @@
-oppgave 5
+--Oppgave 5
 
 SELECT DISTINCT teaterstykke.navn AS yoyo, 
         ansatt.navn AS skuespiller, 
@@ -13,7 +13,7 @@ INNER JOIN harrolle ON rolle.rolleID = harrolle.rolleID
 INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 
-oppgave 6
+--Oppgave 6
 
  SELECT dato, 
         tid, 
@@ -25,11 +25,3 @@ oppgave 6
  AND forestillingstid = tid AND stykkenavn = teaterstykke) 
  GROUP by teaterstykke, dato, tid  
  ORDER BY solgt DESC;
-
- --Oppgave 6
-
-  SELECT dato, tid, count(billettID) AS solgt, stykkenavn 
-  FROM (forestilling INNER JOIN billett ON forestillingsdato = dato 
-  AND forestillingstid = tid AND stykkenavn = teaterstykke) 
-  GROUP by teaterstykke, dato, tid  
-  ORDER BY solgt DESC;
