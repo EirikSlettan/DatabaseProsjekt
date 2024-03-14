@@ -1,5 +1,5 @@
 import sqlite3
-from utils import *
+from utils import create_table
 
 def finn_navn_skuespillere():
     con = sqlite3.connect("test1.db")

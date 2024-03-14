@@ -15,10 +15,10 @@ INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 oppgave 6
 
- SELECT stykkenavn, 
+ SELECT teaterstykke, 
         dato, 
         tid,
-        count(billettID) AS solgt,  
+        count(billettID) AS solgt 
  FROM (forestilling 
  FULL OUTER JOIN billett ON forestillingsdato = dato 
  AND forestillingstid = tid AND stykkenavn = teaterstykke) 

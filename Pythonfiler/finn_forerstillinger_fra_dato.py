@@ -1,16 +1,5 @@
 import sqlite3
-import math
 from utils import create_table
-
-""" def print_result(result, dato):
-    x = "="
-    y = 25
-    print(f"{x * y} Oversikt over solgte billetter {dato} {x * y}")
-    for row in result:
-        print(f"Tid: {row[0]}, Dato: {row[1]}, Navn: {row[2]}, Billetter solgt: {row[3]}")
-    print(f"{x *(93)}") """
-    
-    
 
 def finn_forestillinger(dato):
     con = sqlite3.connect("test1.db")

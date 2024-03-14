@@ -1,7 +1,8 @@
-from oppg7 import  *
-from finn_forerstillinger_fra_dato import *
-from finn_navn_skuespillere import *
-from billetter_solgt import *
+from Pythonfiler.oppg7 import  *
+from Pythonfiler.finn_forerstillinger_fra_dato import *
+from Pythonfiler.finn_navn_skuespillere import *
+from Pythonfiler.billetter_solgt import *
+from Pythonfiler.utils import *
 
 
 bredde = 56
@@ -20,7 +21,7 @@ dato = input("Hvilken dato ønsker du å sjekke antall solgte billetter til alle
 finn_forestillinger(dato)
 
 #oppgave 5
-svar5 = input("Ønsker du å se oppgave5 (Y/N)?:").upper()
+svar5 = input("Ønsker du å se oppgave5 (Y/N)?: ").upper()
 
 if svar5 == "Y":
     finn_navn_skuespillere()
@@ -29,7 +30,7 @@ else:
 
 
 #oppgave 6
-svar6 = input("Ønsker du å se oppgave6 (Y/N)?:").upper()
+svar6 = input("Ønsker du å se oppgave6 (Y/N)?: ").upper()
 
 if svar6 == "Y":
     finn_billetter_solgt()
@@ -38,7 +39,7 @@ else:
 
 #oppgave 7
 
-svar7 = input("Ønsker du å se oppgave7 (Y/N)?:").upper()
+svar7 = input("Ønsker du å se oppgave7 (Y/N)?: ").upper()
 
 if svar7 == "Y":
     skuespiller = input("Yes! Hvilken skuespiller vil du se ALLE skuespillerkollegaene til? ")
