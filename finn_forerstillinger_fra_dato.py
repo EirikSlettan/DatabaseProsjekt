@@ -9,6 +9,7 @@ def print_result(result, dato):
         print(f"Tid: {row[0]}, Dato: {row[1]}, Navn: {row[2]}, Billetter solgt: {row[3]}")
     print(f"{x *(93)}")
     
+    
 
 def finn_forestillinger(dato):
     con = sqlite3.connect("test1.db")
@@ -24,5 +25,5 @@ def finn_forestillinger(dato):
     
     return result
 
-finn_forestillinger('2024-02-03')
+print(finn_forestillinger('2024-02-03'))
 
