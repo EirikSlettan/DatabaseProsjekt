@@ -13,6 +13,10 @@ print(f"{tegn*bredde2}VELKOMMEN TIL VÅRT TEATER!{tegn*bredde2}")
 print("-"*bredde)
 
 
+<<<<<<< HEAD
+
+a = input("Ønsker du å gjøre oppgave 7?")
+=======
 #oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil 
 
 #oppgave 4:
@@ -48,6 +52,7 @@ if svar7 == "Y":
 else:
     print("Det er vår beste oppgave!")  
 
+>>>>>>> 9bf34420b3148d0591699c709ad914e769f27002
 
 
 
