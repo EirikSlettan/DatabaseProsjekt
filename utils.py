@@ -24,8 +24,8 @@ def create_table(data, column_names): #Lager en tabell lik den i sqlite3 .mode t
         formatter += "{" + f":<{entry_lengths[i]}" + "}|"
         columns += "{" + f":^{entry_lengths[i]}" + "}|"
     index = 0
-    for length in entry_lengths:
-        border = border[:index] + "+" + border[index:]
+    for length in entry_lengths: #Setter inn + ved alle kryss
+        border = border[:index] + "+" + border[index:] 
         index += length+1
     border = border[:index] + "+" + border[index+1:]
     
@@ -55,6 +55,6 @@ def validate_input(svar, melding):
         
 def validate_date(dato):
     gyldig_input = r'^\d{4}-\d{2}-\d{2}$'
-    if match(gyldig_input, dato):
+    if match(gyldig_input, dato): #Returnerer true hvis input matcher regex
         return True
     False 

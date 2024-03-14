@@ -1,7 +1,7 @@
 import sqlite3
 from utils import create_table
 
-def finn_billetter_solgt():
+def finn_billetter_solgt(): #Returnerer hvor mange billetter som har blitt solgt for hver forestilling
     con = sqlite3.connect("test1.db")
     cursor = con.cursor()
     cursor.execute('''  SELECT teaterstykke, 
