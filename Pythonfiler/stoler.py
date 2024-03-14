@@ -1,6 +1,6 @@
 from datetime import*
-from time import*
-from insert_into import*
+from time import *
+from insert_into import *
 
 
 
@@ -158,9 +158,9 @@ def sette_inn_stoler_hovedscenen(file):
 
 
 
-sette_inn_stoler_gamle_scene("gamle-scene.txt")
+sette_inn_stoler_gamle_scene("Tekstfiler/gamle-scene.txt")
             
-sette_inn_stoler_hovedscenen("hovedscenen.txt")
+sette_inn_stoler_hovedscenen("Tekstfiler/hovedscenen.txt")
 
 
 

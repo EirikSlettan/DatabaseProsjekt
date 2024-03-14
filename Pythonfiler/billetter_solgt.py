@@ -1,5 +1,5 @@
 import sqlite3
-from utils import *
+from utils import create_table
 
 def finn_billetter_solgt():
     con = sqlite3.connect("test1.db")

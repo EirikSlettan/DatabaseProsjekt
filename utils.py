@@ -35,4 +35,3 @@ def create_table(data, column_names):
     for row in data: 
         print(formatter.format(*row))
     print(border)
-
