@@ -1,4 +1,5 @@
 import sqlite3
+from utils import create_table
 
 def print_result(result):
    for row in result:
@@ -19,10 +20,5 @@ INNER JOIN rolle AS r2 ON ahr2.rolleID = r2.rolleID
 INNER JOIN harrolle AS hr2 ON r2.rolleID = hr2.rolleID
 INNER JOIN ansatt AS a2 ON hr2.ansattID = a2.ansattID
 WHERE a1.navn != a2.navn AND a1.navn = ?;''', (navn,))
-    print(f"Alle skuespillere som deler en akt med {navn} er:")
     
-    print_result(cursor.fetchall())
-
-
-
-find_actor('Sunniva Du Mond Nordal')
+    create_table(cursor.fetchall(), ["Navn", "Spiller med", "Skuespill"])
