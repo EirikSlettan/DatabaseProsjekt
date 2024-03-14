@@ -99,7 +99,7 @@ def sette_inn_stoler_hovedscenen(file):
     rad_nr = 18
     sete_nr = 524 + 1
     salnavn = "Hovedscenen"
-    stykkenavn = "Kongsemne"
+    stykkenavn = "Kongsemnene"
     kjopsdato = "2024-03-12"
     kjopstid = "00:00:01"
     forestillingsdato = 0
