@@ -9,6 +9,7 @@ print(f"{tegn*bredde2}VELKOMMEN TIL VÅRT TEATER!{tegn*bredde2}")
 print("-"*bredde)
 
 
+
 a = input("Ønsker du å gjøre oppgave 7?")
 
 
