@@ -33,6 +33,7 @@ def create_table(data, column_names): #Lager en tabell lik den i sqlite3 .mode t
     print(columns.format(*column_names))
     print(border)
     for row in data: 
+        row = [str(c) for c in row] #Konverterer all NULL verdier til string
         print(formatter.format(*row))
     print(border)
 

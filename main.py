@@ -7,10 +7,15 @@ from pythonfiler.oppg6 import *
 
 velkommen_melding()
 
-#oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil 
-list_opp_forestillinger()
-svar = input("a")
-finn_ledige_rader("2024-02-03", "18:30:00", "Storst av alt er kjaerligheten", 9)
+#oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil
+svar3 = input("Hvilket stykke ønsker du å se (Kongsemnene/Størst av alt er kjærligheten)? ") 
+print(f"Her er en oversikt over dato og tidspunkt vi viser {svar3}")
+list_opp_forestillinger(svar3)
+svar4= input("Hvilken dato? ")
+svar5 = input("Hvilken tid? ")
+svar6 = int(input("Hvor mange billetter vil du kjøpe? "))
+print(f"Her er en oversikt over hvilke rader som har {svar6} ledige seter.")
+finn_ledige_rader(svar4, svar5, svar3, svar6)
 
 
 #oppgave 4:
