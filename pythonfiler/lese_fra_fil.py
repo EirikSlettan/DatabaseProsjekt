@@ -53,21 +53,21 @@ def sette_inn_stoler_gamle_scene(file):
 
                     if omraade == "Galleri":
                         sete_nr -=1
-                        billett_galleri = [billettID, 'NULL', 'NULL', 'NULL',  'NULL',  sete_nr, 'NULL', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, None, None, None,  None,  sete_nr, None, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
                     
                     elif omraade == "Balkong":
                         sete_nr -=1
-                        billett_galleri = [billettID, "", "", "", "", sete_nr, '', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, None, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         sete_ledig_balkong = [sete_nr, balkong_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_balkong)
                     
                     elif omraade == "Parkett":
                         sete_nr -=1
-                        billett_galleri = [billettID, "", "", "", "", sete_nr, '', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, None, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         sete_ledig_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
@@ -133,11 +133,11 @@ def sette_inn_stoler_hovedscenen(file):
                     if omraade == "Galleri":
                         sete_ledig_galleri = [sete_nr, 'None', omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
-                        billett_galleri = [billettID, "", "", "", "", sete_nr, '', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
 
                     else:
-                        billett_galleri = [billettID, "", "", "", "", sete_nr, '', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         sete_ledig_parkett = [sete_nr, rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
@@ -147,7 +147,7 @@ def sette_inn_stoler_hovedscenen(file):
                     if omraade == "Galleri":
                         sete_opptatt_galleri = [sete_nr, 'None', omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
-                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, 'None', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         billettID += 1
                         

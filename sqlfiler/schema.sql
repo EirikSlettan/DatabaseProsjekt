@@ -18,12 +18,12 @@ create table billettkjop(
 
 create table billett(
     billettID integer not null,
-    kjopsdato date not null,
-    kjopstid time not null,
-    mobilnummer integer not null,
-    billettgruppe varchar(30) not null,
+    kjopsdato date  null,
+    kjopstid time  null,
+    mobilnummer integer  null,
+    billettgruppe varchar(30)  null,
     setenr integer not null,
-    rad integer not null, 
+    rad integer  null, 
     omraade varchar(50) null,
     salnavn varchar(40) not null,
 
