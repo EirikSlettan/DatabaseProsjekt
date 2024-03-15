@@ -18,21 +18,21 @@ def sette_inn_stoler_gamle_scene(file):
     billettgruppe = "Ordinaer"
     billettID = 1
     billett_kjop = [kjopsdato, kjopstid, 99999999]
-    insert_into_table("billettkjop", billett_kjop)
+    insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
     
     f = open(file, "r")
     omraade = ""
-    for line in f:
-        line = line.strip()
+    for line in f: #Leser gjennom hver linje i fila
+        line = line.strip() #Fjerner whitespace og linjeskift
         if not forestillingsdato:
-            forestillingsdato = line[5:]
+            forestillingsdato = line[5:] #Har satt forestillingsdato = 0. Dvs at forestilling er "not" på første linje. Da setter vi dato til å være datoen, altså fra og med tegn nr. 5 i linje 1.
         
-        elif line.isalpha(): 
+        elif line.isalpha(): #Hvis linjen kun består av bokstaver (som den gjør når man definerer område), setter vi område lik denne linjen.
             omraade = line
 
         else:
-            line = line[::-1]
-            sete_nr = len(line) + 1
+            line = line[::-1] #Når linjen består av tall begynner vi å lese fra høyre siden plassene nummereres ovenfra til høyre og nedover mot venstre. 
+            sete_nr = len(line) + 1 #Setter sete_nr til sete på rad med høyest setenr.
 
             if omraade == "Galleri":
                 galleri_rad_nr -= 1
@@ -45,15 +45,16 @@ def sette_inn_stoler_gamle_scene(file):
 
             for letter in line: 
                 
-                if letter == "x":
+                if letter == "x": #Dette er mellomrom mellom setene, og fjerner derfor et sete (oppretter ingen)
+                    
                     sete_nr -= 1
                     
-                elif letter == "0":
+                elif letter == "0": #Ingen billetter er kjøpt her. Derfor opprettes kun seteentiteter, og ikke billettentiteter.
 
                     if omraade == "Galleri":
                         sete_nr -=1
 
-                        sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] #SETE!!!
+                        sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
                     
                     elif omraade == "Balkong":
@@ -68,7 +69,7 @@ def sette_inn_stoler_gamle_scene(file):
                         sete_ledig_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
 
-                elif letter == "1":
+                elif letter == "1": #Her er et sete kjøpt, og derfor vil en billettentitet også lages.
                     sete_nr -= 1
                     if omraade == "Galleri":
                         sete_opptatt_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
@@ -107,23 +108,23 @@ def sette_inn_stoler_hovedscenen(file):
     billettgruppe = "Ordinaer"
     billettID = 28
     billett_kjop = [kjopsdato, kjopstid, 99999999]
-    insert_into_table("billettkjop", billett_kjop)
+    insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
     f = open(file, "r")
     omraade = ""
-    for line in f:
-        line = line.strip()
+    for line in f: #Leser gjennom hver linje i fila
+        line = line.strip() #Fjerner whitespace og linjeskift
         if not forestillingsdato:
-            forestillingsdato = line[5:]
+            forestillingsdato = line[5:] #Har satt forestillingsdato = 0. Dvs at forestilling er "not" på første linje. Da setter vi dato til å være datoen, altså fra og med tegn nr. 5 i linje 1.
         
         elif line.isalpha(): 
-            omraade = line
+            omraade = line #Hvis linjen kun består av bokstaver (som den gjør når man definerer område), setter vi område lik denne linjen.
         else:
-            line = line[::-1]
+            line = line[::-1] #Når linjen består av tall begynner vi å lese fra høyre siden plassene nummereres ovenfra til høyre og nedover mot venstre. 
             for letter in line: 
-                if letter == "x":
+                if letter == "x": #Dette er mellomrom mellom setene, og fjerner derfor et sete (oppretter ingen)
                     sete_nr -= 1
                     
-                elif letter == "0":
+                elif letter == "0": #Ingen billetter er kjøpt her. Derfor opprettes kun seteentiteter, og ikke billettentiteter.
                     sete_nr -=1
 
                     if omraade == "Galleri":
@@ -133,7 +134,7 @@ def sette_inn_stoler_hovedscenen(file):
                     else:
                         sete_ledig_parkett = [sete_nr, rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
-                elif letter == "1":
+                elif letter == "1": #Her er et sete kjøpt, og derfor vil en billettentitet også lages.
                     sete_nr -= 1
                     if omraade == "Galleri":
                         sete_opptatt_galleri = [sete_nr, 'None', omraade, salnavn] 

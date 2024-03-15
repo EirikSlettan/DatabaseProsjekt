@@ -21,4 +21,4 @@ INNER JOIN harrolle AS hr2 ON r2.rolleID = hr2.rolleID
 INNER JOIN ansatt AS a2 ON hr2.ansattID = a2.ansattID
 WHERE a1.navn != a2.navn AND a1.navn = ?;''', (navn,))
     
-    create_table(cursor.fetchall(), ["Navn", "Spiller med", "Skuespill"])
+    create_table(cursor.fetchall(), ["Navn", "Spiller med", "Teaterstykke"])

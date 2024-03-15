@@ -4,8 +4,9 @@
 
 Dette er vårt prosjekt i TDT4145 Databaser og datamodellering Det følgende er antagelser vi har vært nødt til å gjøre ettersom det ikke var spesifisert godt nok i oppgave beskrivelsen:
 
-- Vi har antatt at Størst av alt har én akt, som vi har kalt _hovedakt_, der alle skuespillere spiller i akten.
-- Vi har antatt at alle skuespillere i "Størst av alt er kjærligheten" spiller seg selv
+- Vi har antatt at Størst av alt er kjærligheten har én akt, som vi har kalt _hovedakt_, der alle skuespillere spiller i akten.
+- Vi har antatt at alle skuespillere i "Størst av alt er kjærligheten" spiller seg selv.
+- Vi har gjort om Billettkjopklassen til en svak klasse til kundeprofil.
 - Etc
 
 ## Virkemåte
@@ -28,3 +29,19 @@ Alternativt kan man selv initialisere databasen ved å kjøre SQL-scriptene:
 Og til slutt python-filen:
 
 - stoler.py
+
+## Gå gjennom oppgavene
+
+Etter å ha gjort "Komme i gang", kjører du main.py. Denne gjør følgende:
+
+- Etter å ha initialisert databasen er oppgave 1 og 2 fullført.
+
+- OPPGAVE 3!!!!!!!!!!!!!
+
+- Du vil først få spørsmål om du ønsker å se billetter solgt på en valgt dato. Dette er oppgave 4.
+
+- Deretter vil du får spørsmål om å se oppgave 5. Her vil du få ut en tabell med teaterstykke, skuespiller og rolle skuespiller har.
+
+- Deretter vil du får spørsmål om å se oppgave 6. Her vil du få en tabell med alle forestillinger rangert fra den som har solgt mest til minst.
+
+- Til slutt vil du få spørsmål om du ønsker å se oppgave 7. Skriv inn den skuespilleren du ønsker å se alle skuespillerkollegaene til, og du får deretter opp det.
