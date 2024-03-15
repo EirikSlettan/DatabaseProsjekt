@@ -24,7 +24,6 @@ AND sete.omraade = billett.omraade
  AND billett.forestillingstid = forestilling.tid
  AND billett.stykkenavn = forestilling.teaterstykke
 WHERE billettID is NULL 
-AND sete.rad is not 'None'
 AND forestilling.dato = ?
 AND forestilling.tid = ?
 AND forestilling.teaterstykke = ?
