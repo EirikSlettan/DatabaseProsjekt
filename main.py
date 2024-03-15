@@ -1,4 +1,5 @@
 from pythonfiler.oppg7 import  *
+from pythonfiler.oppg3 import *
 from pythonfiler.oppg4 import *
 from pythonfiler.oppg5 import *
 from utils import *
@@ -7,6 +8,10 @@ from pythonfiler.oppg6 import *
 velkommen_melding()
 
 #oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil 
+list_opp_forestillinger()
+svar = input("a")
+finn_ledige_rader("2024-02-03", "18:30:00", "Storst av alt er kjaerligheten", 9)
+
 
 #oppgave 4:
 melding = "Hvilken dato ønsker du å sjekke antall solgte billetter til alle forestillingene som vises denne dagen? Svar på formatet: (YYYY-MM-DD): "

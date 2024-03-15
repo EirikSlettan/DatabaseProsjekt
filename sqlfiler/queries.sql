@@ -1,3 +1,15 @@
+--Oppgave 3
+select sete.rad, sete.omraade, sete.salnavn count(*) as c 
+from billett FULL OUTER JOIN sete 
+ON (billett.setenr = sete.setenr 
+AND billett.rad = sete.rad 
+AND sete.omraade = billett.omraade
+ AND billett.salnavn = sete.salnavn) 
+WHERE billettID is NULL AND sete.rad is NOT 'None'
+ GROUP BY sete.rad, sete.omraade, sete.salnavn 
+ HAVING c >=9;
+
+
 --Oppgave 5
 
 SELECT DISTINCT teaterstykke.navn AS stykke, 
