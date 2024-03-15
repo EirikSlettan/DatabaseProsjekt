@@ -6,8 +6,8 @@ def print_result(result):
        print(f"{row[0]} {row[1]} {row[2]}")
     
 
-def find_actor(navn):
-    con = sqlite3.connect("test1.db") #Endre dette
+def find_colleagues(navn):
+    con = sqlite3.connect("teater_database.db") #Endre dette
     cursor = con.cursor()
     cursor.execute('''SELECT DISTINCT a1.navn AS skuespiller1, a2.navn AS skuespiller2, akter.stykkenavn AS skuespill
 FROM ansatt AS a1

@@ -10,7 +10,7 @@ def convert_values(values): #Konverterer en liste til streng
     return string[0: -2] #Fjerner mellomrom og komma på slutten
         
 def insert_into_table(table, values): #Tar inn string for tabellnavn, og liste for values
-    con = sqlite3.connect("test1.db") #Endre dette
+    con = sqlite3.connect("teater_database.db") #Endre dette
     cursor = con.cursor()
     string_values = convert_values(values)
     try:

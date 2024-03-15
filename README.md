@@ -11,24 +11,24 @@ Dette er vårt prosjekt i TDT4145 Databaser og datamodellering Det følgende er 
 
 ## Virkemåte
 
-Vi har valgt å kjøre alle python-filer fra en main-fil som heter main.py. Alle SQL-queries kan bli funnet i _SQLfiler/sql_query.sql_.
+Vi har valgt å kjøre alle python-filer fra en main-fil som heter main.py. Alle sql-queries kan bli funnet i _sqlfiler/queries.sql_.
 
-Videre har vi satt inn setene som har blitt solgt, og de tilhørende billettene, i _stoler.py_
+Videre har vi satt inn setene som har blitt solgt, og de tilhørende billettene, i _lese_fra_fil.py_
 
-Resten av innholdet i databasen blir satt inn ved hjelp av _sql_sqript_insert.sql_.
+Resten av innholdet i databasen blir satt inn ved hjelp av _insert_known_values.sql_.
 
 ## Komme i gang
 
-For å initialisere databasen kan man kjøre init.bat i terminalen dersom man er på Windows, eller init.sh dersom man er på Linux. Dette scriptet setter in SQL-skjemaet og dataen inn i databasen. I tillegg kjører den stoler.py som leser fra tekstfilene som inneholder hvilke seter som har blitt solgt, og setter inn dataen.
+For å initialisere databasen kan man kjøre init.bat i terminalen dersom man er på Windows, eller init.sh dersom man er på Linux. Dette scriptet setter in sql-skjemaet og dataen inn i databasen. I tillegg kjører den stoler.py som leser fra tekstfilene som inneholder hvilke seter som har blitt solgt, og setter inn dataen.
 
-Alternativt kan man selv initialisere databasen ved å kjøre SQL-scriptene:
+Alternativt kan man selv initialisere databasen ved å kjøre sql-scriptene:
 
-- sql-sqript-setup.sql
-- sql-sqript-insert.sql
+- schema.sql
+- insert_known_values.sql
 
 Og til slutt python-filen:
 
-- stoler.py
+- lese_fra_fil.py
 
 ## Gå gjennom oppgavene
 

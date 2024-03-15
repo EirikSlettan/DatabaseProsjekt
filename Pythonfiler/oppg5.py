@@ -2,9 +2,9 @@ import sqlite3
 from utils import create_table
 
 def finn_navn_skuespillere():
-    con = sqlite3.connect("test1.db")
+    con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
-    cursor.execute('''SELECT DISTINCT teaterstykke.navn AS yoyo, 
+    cursor.execute('''SELECT DISTINCT teaterstykke.navn AS teaterstykke, 
         ansatt.navn AS skuespiller, 
         rolle.rollenavn AS rolle
 

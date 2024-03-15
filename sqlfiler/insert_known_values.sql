@@ -194,8 +194,8 @@ INSERT INTO ansatt VALUES (18, 'Jo Saberniak', 'jo.saberniak@trondelagteater.no'
 INSERT INTO ansatt VALUES (19, 'Marte M. Steinholt', 'marte.m..steinholt@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
 INSERT INTO ansatt VALUES (20, 'Tor Ivar Hagen', 'tor.ivar.hagen@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
 INSERT INTO ansatt VALUES (21, 'Trond-Ove Skrødal', 'trond-ove.skrødal@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
-INSERT INTO ansatt VALUES (22, 'Natalie Grøndahl', 'natalie.grøndahl@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
-INSERT INTO ansatt VALUES (23, 'Tangen Åsmund Flaten', 'tangen.åsmund.flaten@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
+INSERT INTO ansatt VALUES (22, 'Natalie Grøndahl Tangen', 'natalie.grøndahl@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
+INSERT INTO ansatt VALUES (23, 'Åsmund Flaten', 'tangen.åsmund.flaten@trondelagteater.no', 'fast ansatt', 1, 'skuespiller');
 INSERT INTO ansatt VALUES (24, 'Jonas Corell Petersen', 'jonas.corell.petersen@trondelagteater.no', 'fast ansatt', 0, 'Regi');
 INSERT INTO ansatt VALUES (25, 'David Gehrt', 'david.gehrt@trondelagteater.no', 'fast ansatt', 0, 'Scenografi og kostymer');
 INSERT INTO ansatt VALUES (26, 'Gaute Tønder', 'gaute.tønder@trondelagteater.no', 'fast ansatt', 0, 'Musikalsk ansvarlig');

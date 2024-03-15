@@ -1,8 +1,8 @@
-from Pythonfiler.oppg7 import  *
-from Pythonfiler.finn_forerstillinger_fra_dato import *
-from Pythonfiler.finn_navn_skuespillere import *
+from pythonfiler.oppg7 import  *
+from pythonfiler.oppg4 import *
+from pythonfiler.oppg5 import *
 from utils import *
-from Pythonfiler.billetter_solgt import *
+from pythonfiler.oppg6 import *
 
 velkommen_melding()
 
@@ -40,7 +40,7 @@ svar7 = input(melding).upper()
 svar7 = validate_input(svar7, melding)
 if svar7 == "Y":
     skuespiller = input("Yes! Hvilken skuespiller vil du se ALLE skuespillerkollegaene til? ")
-    find_actor(skuespiller)
+    find_colleagues(skuespiller)
     print("NB: Ser du en tom tabell har du antageligvis skrevet deres FULLE(!) navn feil")
 else:
     print("Det er vår beste oppgave!")  
