@@ -53,7 +53,7 @@ def sette_inn_stoler_gamle_scene(file):
 
                     if omraade == "Galleri":
                         sete_nr -=1
-                        billett_galleri = [billettID, "", "", "", "", sete_nr, '', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, 'NULL', 'NULL', 'NULL',  'NULL',  sete_nr, 'NULL', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)

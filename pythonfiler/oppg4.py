@@ -7,7 +7,7 @@ def finn_forestillinger(dato):
     
     cursor.execute('''SELECT tid, dato, teaterstykke, count(billettID) AS  antall 
                    FROM(forestilling FULL OUTER JOIN billett ON stykkenavn = teaterstykke AND tid = forestillingstid AND dato = forestillingsdato) 
-                   WHERE dato = ?  GROUP BY tid, dato, stykkenavn;''',  (dato,))
+                   WHERE dato = ? AND mobilnummer NOT NULL GROUP BY tid, dato, stykkenavn;''',  (dato,))
     result = cursor.fetchall()
     
     con.close()
