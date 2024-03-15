@@ -4,7 +4,6 @@ from pythonfiler.oppg4 import *
 from pythonfiler.oppg5 import *
 from utils import *
 from pythonfiler.oppg6 import *
-
 velkommen_melding()
 
 #oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil
@@ -16,7 +15,10 @@ svar5 = input("Hvilken tid? ")
 svar6 = int(input("Hvor mange billetter vil du kjøpe? "))
 print(f"Her er en oversikt over hvilke rader som har {svar6} ledige seter.")
 finn_ledige_rader(svar4, svar5, svar3, svar6)
-
+svar10 = input("Hvilket område hvil du sitte i? ")
+svar9 = input("Hvilken rad vil du sitte i? ")
+kjop_billetter(svar9, svar6, svar10, "Hovedscenen", 47519574)
+print("Billetter er kjøpt!")
 
 #oppgave 4:
 melding = "Hvilken dato ønsker du å sjekke antall solgte billetter til alle forestillingene som vises denne dagen? Svar på formatet: (YYYY-MM-DD): "

@@ -147,7 +147,7 @@ def sette_inn_stoler_hovedscenen(file):
                     if omraade == "Galleri":
                         sete_opptatt_galleri = [sete_nr, 0, omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
-                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, None, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, 0, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         billettID += 1
                         

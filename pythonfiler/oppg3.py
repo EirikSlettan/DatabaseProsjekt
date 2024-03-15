@@ -1,5 +1,5 @@
 import sqlite3
-from utils import create_table
+from utils import *
 
 def list_opp_forestillinger(svar):
     con = sqlite3.connect("teater_database.db")
@@ -14,12 +14,12 @@ def finn_ledige_rader(dato, tid, stykke, antall_seter):
     cursor = con.cursor()
     
     cursor.execute('''select sete.rad, sete.omraade, sete.salnavn, count(billettID) as c 
-from (billett FULL OUTER JOIN sete 
+from (billett INNER JOIN sete 
 ON (billett.setenr = sete.setenr 
 AND billett.rad = sete.rad 
 AND sete.omraade = billett.omraade
  AND billett.salnavn = sete.salnavn)) 
- FULL OUTER JOIN forestilling 
+INNER JOIN forestilling 
  ON billett.forestillingsdato = forestilling.dato
  AND billett.forestillingstid = forestilling.tid
  AND billett.stykkenavn = forestilling.teaterstykke
@@ -33,4 +33,26 @@ AND forestilling.teaterstykke = ?
     
     con.close()
     create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
+
+def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
+    con = sqlite3.connect("teater_database.db")
+    cursor = con.cursor()
+    kjopsdato = "0000-00-00"
+    kjopstid = "00:00:00"
+    
+    seter = cursor.execute('''SELECT billettID from billett 
+                            WHERE rad = ? AND omraade = ? AND salnavn = ? LIMIT ? ;''', (rad, omraade, salnavn, antall))
+    
+    #insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
+    seter = seter.fetchall()
+    for sete in seter:
+        print(sete[0])
+        cursor.execute('''UPDATE billett  SET 
+                       kjopsdato = ?, 
+                       kjopstid = ?, 
+                       mobilnummer = ?, 
+                       billettgruppe = ? WHERE billettID = ?
+                       ''', (kjopsdato, kjopstid, mobilnummer, 'Honnor',sete[0]))
+        con.commit( )
+    con.close()
 
