@@ -4,6 +4,7 @@ from utils import *
 def list_opp_forestillinger(svar):
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
+    #print(f"SELECT dato, tid, teaterstykke FROM forestilling WHERE teaterstykke = {svar} ORDER BY dato, tid DESC;")
     
     cursor.execute('''SELECT dato, tid, teaterstykke FROM forestilling WHERE teaterstykke = ? ORDER BY dato, tid DESC;''', (svar,))
     result = cursor.fetchall()
@@ -41,7 +42,7 @@ def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
     kjopstid = "00:00:00"
     
     seter = cursor.execute('''SELECT billettID from billett 
-                            WHERE rad = ? AND omraade = ? AND salnavn = ? LIMIT ? ;''', (rad, omraade, salnavn, antall))
+                            WHERE mobilnummer is NULL AND rad = ? AND omraade = ? AND salnavn = ? LIMIT ? ;''', (rad, omraade, salnavn, antall))
     
     #insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
     seter = seter.fetchall()
@@ -53,6 +54,6 @@ def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
                        mobilnummer = ?, 
                        billettgruppe = ? WHERE billettID = ?
                        ''', (kjopsdato, kjopstid, mobilnummer, 'Honnor',sete[0]))
-        con.commit( )
+    con.commit()
     con.close()
 

@@ -7,17 +7,35 @@ from pythonfiler.oppg6 import *
 velkommen_melding()
 
 #oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil
-svar3 = input("Hvilket stykke ønsker du å se (Kongsemnene/Størst av alt er kjærligheten)? ") 
-print(f"Her er en oversikt over dato og tidspunkt vi viser {svar3}")
-list_opp_forestillinger(svar3)
-svar4= input("Hvilken dato? ")
-svar5 = input("Hvilken tid? ")
-svar6 = int(input("Hvor mange billetter vil du kjøpe? "))
-print(f"Her er en oversikt over hvilke rader som har {svar6} ledige seter.")
-finn_ledige_rader(svar4, svar5, svar3, svar6)
+teaterstykke = input("Hvilket stykke ønsker du å se (K/S)? ")
+teaterstykke, scene = convert_input(teaterstykke)
+print(f"Her er en oversikt over dato og tidspunkt vi viser {teaterstykke}")
+list_opp_forestillinger(teaterstykke)
+
+dato= input("Hvilken dato? ")
+while not validate_date(dato):
+    print("Ugyldig dato, prøv igjen.")
+    dato= input("Hvilken dato? ")
+    
+
+tid = input("Hvilken tid? ")
+while not validate_time(tid):
+    print("Ugyldig tid, prøv igjen.")
+    tid= input("Hvilken tid? ")
+
+antall = int(input("Hvor mange billetter vil du kjøpe? "))
+
+print(f"Her er en oversikt over hvilke rader som har {antall} ledige seter.")
+finn_ledige_rader(dato, tid, teaterstykke, antall)
+
 svar10 = input("Hvilket område hvil du sitte i? ")
+while not verify_omraade(scene, svar10):
+    print("Område finnes ikke i salen du har valgt, prøv igjen.")
+    svar10 = input("Hvilket område hvil du sitte i? ")
+    
 svar9 = input("Hvilken rad vil du sitte i? ")
-kjop_billetter(svar9, svar6, svar10, "Hovedscenen", 47519574)
+svar11 = input("Angi mobilnummeret ditt: ")
+kjop_billetter(svar9, antall, svar10, scene, 47519574)
 print("Billetter er kjøpt!")
 
 #oppgave 4:
@@ -55,7 +73,10 @@ if svar7 == "Y":
     find_colleagues(skuespiller)
     print("NB: Ser du en tom tabell har du antageligvis skrevet deres FULLE(!) navn feil")
 else:
-    print("Det er vår beste oppgave!")  
+    print("Det er vår beste oppgave!")
+        
+    
+        
 
 
 

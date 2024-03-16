@@ -59,23 +59,26 @@ def validate_date(dato):
     gyldig_input = r'^\d{4}-\d{2}-\d{2}$'
     if match(gyldig_input, dato): #Returnerer true hvis input matcher regex
         return True
-    False 
-def convert_values(values): #Konverterer en liste til streng og tupler
-    string = ""
-    tuple = ()
-    for value in values:
-        string += f"?, "
-        tuple += (value,)
-    return string[0: -2], tuple #Fjerner mellomrom og komma på slutten
-        
-def insert_into_table(table, values): #Tar inn string for tabellnavn, og liste for values
-    parameters, tuple = convert_values(values)
-    con = sqlite3.connect("teater_database.db") #Endre dette
-    cursor = con.cursor()
+    return False 
+
+def validate_time(tid):
+    gyldig_input = r'^\d{2}:\d{2}:\d{2}$'
+    if match(gyldig_input, tid): #Returnerer true hvis input matcher regex
+        return True
+    return False 
     
-    try:
-        cursor.execute(f"INSERT INTO {table} VALUES ({parameters})", (tuple)) 
-        con.commit()
-        con.close()
-    except Exception as e:
-        print("Noe gikk galt: ", e, table, values)
+def convert_input(svar):
+    if svar.lower() == "k":
+        return "Kongsemnene", "Hovedscenen"
+    return "Storst av alt er kjaerligheten", "Gamle scene"
+
+def verify_omraade(sal, omraade_navn):
+    omraade_navn = omraade_navn.lower()
+    gamle_omraader = ["parkett", "balkong", "galleri"]
+    hoved_omraader = ["galleri", "parkett"]
+    if sal == "Gamle scene":
+        return omraade_navn in gamle_omraader
+    if sal == "Hovedscenen":
+        return omraade_navn in hoved_omraader
+    
+print(verify_omraade("Hovedscenen", "Parkett"))
