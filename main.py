@@ -26,7 +26,8 @@ while not validate_time(tid):
 antall = int(input("Hvor mange billetter vil du kjøpe? "))
 
 print(f"Her er en oversikt over hvilke rader som har {antall} ledige seter.")
-finn_ledige_rader(dato, tid, teaterstykke, antall)
+ledige_rader = finn_ledige_rader(dato, tid, teaterstykke, antall)
+create_table(ledige_rader, ["Rad", "Omraade", "Navn", "Ledige"])
 
 svar10 = input("Hvilket område hvil du sitte i? ")
 while not verify_omraade(scene, svar10):
@@ -34,6 +35,7 @@ while not verify_omraade(scene, svar10):
     svar10 = input("Hvilket område hvil du sitte i? ")
     
 svar9 = input("Hvilken rad vil du sitte i? ")
+
 mobilnr = int(input("Angi mobilnummeret ditt: "))
 if sjekk_om_kundeprofil_eksisterer(mobilnr) == False:
     print("Vi ser at du er en ny kunde.")
@@ -44,18 +46,23 @@ kjop_billetter(svar9, antall, svar10, scene, mobilnr)
 print("Billetter er kjøpt!")
 
 #oppgave 4:
-print("Oppgave 4")
-melding = "Hvilken dato ønsker du å sjekke antall solgte billetter til alle forestillingene som vises denne dagen? Svar på formatet: (YYYY-MM-DD): "
-dato = input(melding)
-while not validate_date(dato):
-    print("Ikke en gyldig dato")
+melding = "Ønsker du å se oppgave5 (Y/N)?: "
+svar4 = input(melding).upper()
+svar4 = validate_input(svar4, melding)
+if svar4 == "Y":
+    melding = "Hvilken dato ønsker du å sjekke antall solgte billetter til alle forestillingene som vises denne dagen? Svar på formatet: (YYYY-MM-DD): "
     dato = input(melding)
-finn_forestillinger(dato)
+    while not validate_date(dato):
+        print("Ikke en gyldig dato")
+        dato = input(melding)
+    finn_forestillinger(dato)
+else:
+    print("Det var synd, vi har jobbet masse med den :(")
 
 #oppgave 5
 melding = "Ønsker du å se oppgave5 (Y/N)?: "
 svar5 = input(melding).upper()
-svar5 = validate_input(svar5, melding )
+svar5 = validate_input(svar5, melding)
 if svar5 == "Y":
     finn_navn_skuespillere()
 else:

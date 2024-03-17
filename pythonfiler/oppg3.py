@@ -34,7 +34,9 @@ AND forestilling.teaterstykke = ?
     result = cursor.fetchall()
     
     con.close()
-    create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
+
+    return result
+    # create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
 
 def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
     datotid = localtime()

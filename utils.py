@@ -79,6 +79,10 @@ def verify_omraade(sal, omraade_navn):
     if sal == "Gamle scene":
         return omraade_navn in gamle_omraader
     if sal == "Hovedscenen":
+        return omraade_navn in hoved_omraader   
+
+def validate_mobilnr():
+    return
         return omraade_navn in hoved_omraader
     
 def finn_stykke_fra_salnavn(salnavn):
