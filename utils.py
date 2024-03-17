@@ -83,3 +83,12 @@ def verify_omraade(sal, omraade_navn):
 
 def validate_mobilnr():
     return
+        return omraade_navn in hoved_omraader
+    
+def finn_stykke_fra_salnavn(salnavn):
+    stykke = ""
+    if salnavn.lower() == "gamle scene":
+        stykke = "Storst av alt er kjaerligheten"
+    elif salnavn.lower() == "hovedscenen":
+        stykke = "Kongsemnene"
+    return stykke
