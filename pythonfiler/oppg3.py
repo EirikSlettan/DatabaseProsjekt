@@ -1,5 +1,6 @@
 import sqlite3
 from utils import *
+from time import *
 
 def list_opp_forestillinger(svar):
     con = sqlite3.connect("teater_database.db")
@@ -36,15 +37,17 @@ AND forestilling.teaterstykke = ?
     create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
 
 def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
+    datotid = localtime()
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
-    kjopsdato = "0000-00-00"
-    kjopstid = "00:00:00"
+    kjopsdato = strftime("20%y-%m-%d", datotid)
+    kjopstid  = strftime("%H:%M:%S", datotid)
     
+    insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
+      
     seter = cursor.execute('''SELECT billettID from billett 
                             WHERE mobilnummer is NULL AND rad = ? AND omraade = ? AND salnavn = ? LIMIT ? ;''', (rad, omraade, salnavn, antall))
     
-    #insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
     seter = seter.fetchall()
     for sete in seter:
         cursor.execute('''UPDATE billett  SET 
