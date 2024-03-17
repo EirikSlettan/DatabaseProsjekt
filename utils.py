@@ -81,4 +81,10 @@ def verify_omraade(sal, omraade_navn):
     if sal == "Hovedscenen":
         return omraade_navn in hoved_omraader
     
-print(verify_omraade("Hovedscenen", "Parkett"))
+def finn_stykke_fra_salnavn(salnavn):
+    stykke = ""
+    if salnavn.lower() == "gamle scene":
+        stykke = "Storst av alt er kjaerligheten"
+    elif salnavn.lower() == "hovedscenen":
+        stykke = "Kongsemnene"
+    return stykke

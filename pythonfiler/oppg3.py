@@ -47,13 +47,29 @@ def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
     #insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
     seter = seter.fetchall()
     for sete in seter:
-        print(sete[0])
         cursor.execute('''UPDATE billett  SET 
                        kjopsdato = ?, 
                        kjopstid = ?, 
                        mobilnummer = ?, 
                        billettgruppe = ? WHERE billettID = ?
-                       ''', (kjopsdato, kjopstid, mobilnummer, 'Honnor',sete[0]))
+                       ''', (kjopsdato, kjopstid, mobilnummer, 'Honnor', sete[0]))
     con.commit()
     con.close()
+    return finn_pris(seter, salnavn)    
+
+def finn_pris(billetter, salnavn):
+    stykke = finn_stykke_fra_salnavn(salnavn)
+    total_sum = 0
+    con = sqlite3.connect("teater_database.db")
+    cursor = con.cursor()
+    for billett in billetter:
+        billettID = billett[0]
+        cursor.execute('''SELECT pris FROM billettgruppe WHERE gruppe = 
+                       (SELECT billettgruppe FROM billett WHERE billettID = ?) AND stykkenavn = ?''', (billettID, stykke))
+        pris = cursor.fetchall()
+        total_sum += pris[0][0]
+    con.close()
+    return total_sum
+        
+        
 

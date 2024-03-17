@@ -35,10 +35,11 @@ while not verify_omraade(scene, svar10):
     
 svar9 = input("Hvilken rad vil du sitte i? ")
 svar11 = input("Angi mobilnummeret ditt: ")
-kjop_billetter(svar9, antall, svar10, scene, 47519574)
-print("Billetter er kjøpt!")
+totalpris = kjop_billetter(svar9, antall, svar10, scene, 47519574)
+print(f"Billetter er kjøpt! ")
 
 #oppgave 4:
+print("Oppgave 4")
 melding = "Hvilken dato ønsker du å sjekke antall solgte billetter til alle forestillingene som vises denne dagen? Svar på formatet: (YYYY-MM-DD): "
 dato = input(melding)
 while not validate_date(dato):
