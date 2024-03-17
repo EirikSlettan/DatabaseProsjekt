@@ -1,9 +1,9 @@
-from pythonfiler.oppg7 import  *
 from pythonfiler.oppg3 import *
 from pythonfiler.oppg4 import *
 from pythonfiler.oppg5 import *
-from utils import *
 from pythonfiler.oppg6 import *
+from pythonfiler.oppg7 import *
+from utils import *
 velkommen_melding()
 
 #oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil
@@ -34,9 +34,14 @@ while not verify_omraade(scene, svar10):
     svar10 = input("Hvilket område hvil du sitte i? ")
     
 svar9 = input("Hvilken rad vil du sitte i? ")
-svar11 = input("Angi mobilnummeret ditt: ")
-totalpris = kjop_billetter(svar9, antall, svar10, scene, 47519574)
-print(f"Billetter er kjøpt! ")
+mobilnr = int(input("Angi mobilnummeret ditt: "))
+if sjekk_om_kundeprofil_eksisterer(mobilnr) == False:
+    print("Vi ser at du er en ny kunde.")
+    navn = input("Vennligst oppgi navnet ditt? ")
+    adresse = input("Vennligst oppgi din adresse? ")
+    lag_kundeprofil(mobilnr, navn, adresse)
+kjop_billetter(svar9, antall, svar10, scene, mobilnr)
+print("Billetter er kjøpt!")
 
 #oppgave 4:
 print("Oppgave 4")
