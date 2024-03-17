@@ -1,5 +1,5 @@
 create table kundeprofil(
-    mobilnummer varchar(8) not null,
+    mobilnummer integer(8) not null,
     navn varchar(30) not null,
     adresse varchar(50) not null,
     constraint kundeprofil_pk primary key (mobilnummer)
@@ -8,7 +8,7 @@ create table kundeprofil(
 create table billettkjop(
     dato DATE not null, 
     tid TIME not null,
-    mobilnummer varchar(8) not null, 
+    mobilnummer integer(8) not null, 
     constraint billettkjop_fk foreign key (mobilnummer) references kundeprofil(mobilnummer)
     on update cascade
 	on delete cascade,

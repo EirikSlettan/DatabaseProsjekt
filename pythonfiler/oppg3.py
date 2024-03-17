@@ -57,3 +57,23 @@ def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
     con.commit()
     con.close()
 
+
+def sjekk_om_kundeprofil_eksisterer(mobilnr):
+    con = sqlite3.connect("teater_database.db")
+    cursor = con.cursor()
+
+    kundeprofiler = cursor.execute("SELECT mobilnummer FROM kundeprofil").fetchall()
+    con.close()
+
+    for kundeprofil in kundeprofiler:
+        if kundeprofil[0] == mobilnr:
+            return True
+
+    return False
+
+
+def lag_kundeprofil(mobilnr, navn, adresse):
+    con = sqlite3.connect("teater_database.db")
+    cursor = con.cursor()
+    cursor.execute("INSERT INTO kundeprofil VALUES (?, ?, ?)", (mobilnr, navn, adresse))
+    con.close()
