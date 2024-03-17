@@ -81,9 +81,14 @@ def verify_omraade(sal, omraade_navn):
     if sal == "Hovedscenen":
         return omraade_navn in hoved_omraader   
 
-def validate_mobilnr():
-    return
-        return omraade_navn in hoved_omraader
+def validate_rad(ledige_rader, rad):
+    if rad.isnumeric() == False:
+        return False
+    rad = int(rad)
+    
+    for ledig_rad in ledige_rader:
+        if ledig_rad[0] == rad:
+            return True
     
 def finn_stykke_fra_salnavn(salnavn):
     stykke = ""

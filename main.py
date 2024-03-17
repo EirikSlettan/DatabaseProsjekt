@@ -23,27 +23,40 @@ while not validate_time(tid):
     print("Ugyldig tid, prøv igjen.")
     tid= input("Hvilken tid? ")
 
-antall = int(input("Hvor mange billetter vil du kjøpe? "))
+antall_billetter = int(input("Hvor mange billetter vil du kjøpe? "))
+hent_billett_typer(teaterstykke)
+type_billett = input("Hvilken type billett vil du kjøpe?")
 
-print(f"Her er en oversikt over hvilke rader som har {antall} ledige seter.")
-ledige_rader = finn_ledige_rader(dato, tid, teaterstykke, antall)
+print(f"Her er en oversikt over hvilke rader som har {antall_billetter} ledige seter.")
+ledige_rader = finn_ledige_rader(dato, tid, teaterstykke, antall_billetter)
 create_table(ledige_rader, ["Rad", "Omraade", "Navn", "Ledige"])
 
-svar10 = input("Hvilket område hvil du sitte i? ")
-while not verify_omraade(scene, svar10):
+omraade  = input("Hvilket område hvil du sitte i? ")
+while not verify_omraade(scene, omraade):
     print("Område finnes ikke i salen du har valgt, prøv igjen.")
-    svar10 = input("Hvilket område hvil du sitte i? ")
+    omraade = input("Hvilket område vil du sitte i? ")
     
-svar9 = input("Hvilken rad vil du sitte i? ")
+rad = input("Hvilken rad vil du sitte i? ")
+while not validate_rad(ledige_rader, rad):
+    print("Raden finnes ikke i salen du har valgt, prøv igjen.")
+    rad = input("Hvilken rad vil du sitte i? ")
 
-mobilnr = int(input("Angi mobilnummeret ditt: "))
+rad = int(rad)
+
+mobilnr = input("Angi mobilnummeret ditt: ")
+while not mobilnr.isnumeric():
+    print("Det er ikke et gyldig nummer.")
+    mobilnr = input("Angi mobilnummeret ditt: ")
+
+mobilnr = int(mobilnr)
+
 if sjekk_om_kundeprofil_eksisterer(mobilnr) == False:
     print("Vi ser at du er en ny kunde.")
     navn = input("Vennligst oppgi navnet ditt? ")
     adresse = input("Vennligst oppgi din adresse? ")
     lag_kundeprofil(mobilnr, navn, adresse)
-kjop_billetter(svar9, antall, svar10, scene, mobilnr)
-print("Billetter er kjøpt!")
+pris = kjop_billetter(rad, antall_billetter, omraade, scene, type_billett, mobilnr)
+print(f"Billetter er kjøpt! Prisen ble {pris}kr.")
 
 #oppgave 4:
 melding = "Ønsker du å se oppgave5 (Y/N)?: "

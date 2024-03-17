@@ -38,7 +38,7 @@ AND forestilling.teaterstykke = ?
     return result
     # create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
 
-def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
+def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer):
     datotid = localtime()
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
@@ -57,7 +57,7 @@ def kjop_billetter(rad, antall, omraade, salnavn, mobilnummer):
                        kjopstid = ?, 
                        mobilnummer = ?, 
                        billettgruppe = ? WHERE billettID = ?
-                       ''', (kjopsdato, kjopstid, mobilnummer, 'Honnor', sete[0]))
+                       ''', (kjopsdato, kjopstid, mobilnummer, type_billett, sete[0]))
     con.commit()
     con.close()
     return finn_pris(seter, salnavn)    
@@ -94,7 +94,13 @@ def sjekk_om_kundeprofil_eksisterer(mobilnr):
 
 
 def lag_kundeprofil(mobilnr, navn, adresse):
+   insert_into_table("kundeprofil", [mobilnr, navn, adresse])
+   
+def hent_billett_typer(stykkenavn):
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
-    cursor.execute("INSERT INTO kundeprofil VALUES (?, ?, ?)", (mobilnr, navn, adresse))
+    billettpriser = cursor.execute('''SELECT gruppe, pris FROM billettgruppe WHERE stykkenavn = ?''', (stykkenavn, )).fetchall()
     con.close()
+    create_table(billettpriser, ["Gruppe", "Pris (kr)"])
+    
+    
