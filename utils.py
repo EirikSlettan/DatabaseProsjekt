@@ -117,3 +117,10 @@ def insert_into_table(table, values): #Tar inn string for tabellnavn, og liste f
         con.close()
     except Exception as e:
         print("Noe gikk galt: ", e, table, values)
+        
+def validate_billett_type(forestilling, type):
+    k = ["Ordinaer", "Honnor", "Student", "Gruppe 10", "Gruppe honnor 10"]
+    s = ["Ordinaer", "Honnor", "Student", "Barn", "Gruppe 10", "Gruppe honnor 10"]
+    if forestilling == "Kongsemnene":
+        return type in k
+    return type in s

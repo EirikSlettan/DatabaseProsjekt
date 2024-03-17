@@ -34,6 +34,7 @@ AND forestilling.teaterstykke = ?
     result = cursor.fetchall()
     
     con.close()
+    create_table(result, ["Rad", "Omraade", "Navn", "Ledige"])
 
     return result
     # create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
@@ -47,20 +48,20 @@ def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer):
     
     insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
       
-    seter = cursor.execute('''SELECT billettID from billett 
-                            WHERE mobilnummer is NULL AND rad = ? AND omraade = ? AND salnavn = ? LIMIT ? ;''', (rad, omraade, salnavn, antall))
+    billetter = cursor.execute('''SELECT billettID from billett 
+                            WHERE mobilnummer is NULL AND rad = ? AND omraade = ? AND salnavn = ? LIMIT ?''', (rad, omraade, salnavn, antall))
     
-    seter = seter.fetchall()
-    for sete in seter:
+    billetter = billetter.fetchall()
+    for billett in billetter:
         cursor.execute('''UPDATE billett  SET 
                        kjopsdato = ?, 
                        kjopstid = ?, 
                        mobilnummer = ?, 
                        billettgruppe = ? WHERE billettID = ?
-                       ''', (kjopsdato, kjopstid, mobilnummer, type_billett, sete[0]))
+                       ''', (kjopsdato, kjopstid, mobilnummer, type_billett, billett[0]))
     con.commit()
     con.close()
-    return finn_pris(seter, salnavn)    
+    return finn_pris(billetter, salnavn)    
 
 def finn_pris(billetter, salnavn):
     stykke = finn_stykke_fra_salnavn(salnavn)
