@@ -1,11 +1,6 @@
 import sqlite3
 from utils import create_table
 
-def print_result(result):
-   for row in result:
-       print(f"{row[0]} {row[1]} {row[2]}")
-    
-
 def find_colleagues(navn):
     con = sqlite3.connect("teater_database.db") #Endre dette
     cursor = con.cursor()

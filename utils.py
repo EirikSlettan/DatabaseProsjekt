@@ -16,8 +16,8 @@ def find_longest_entry(data, column_names): #Finner input med flest tegn i hver 
 def create_table(data, column_names): #Lager en tabell lik den i sqlite3 .mode table, tar inn fetchall()
     entry_lengths = find_longest_entry(data, column_names)
     entry_lengths = [x+1 for x in entry_lengths]
-    table_length = sum(entry_lengths) + len(column_names)+1
-    border = f"{'-' * (table_length-len(column_names))}"
+    table_length = sum(entry_lengths) +1
+    border = f"{'-' * (table_length)}"
     formatter = "|"
     columns = "|"
     i = 0

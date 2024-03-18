@@ -5,7 +5,6 @@ from time import *
 def list_opp_forestillinger(svar):
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
-    #print(f"SELECT dato, tid, teaterstykke FROM forestilling WHERE teaterstykke = {svar} ORDER BY dato, tid DESC;")
     
     cursor.execute('''SELECT dato, tid, teaterstykke FROM forestilling WHERE teaterstykke = ? ORDER BY dato, tid DESC;''', (svar,))
     result = cursor.fetchall()
@@ -31,13 +30,12 @@ AND forestilling.tid = ?
 AND forestilling.teaterstykke = ?
  GROUP BY sete.rad, sete.omraade, sete.salnavn 
  HAVING c >=? ORDER BY sete.omraade, sete.rad ASC;''',  (dato, tid, stykke, antall_seter))
-    result = cursor.fetchall()
     
+    result = cursor.fetchall()
     con.close()
     create_table(result, ["Rad", "Omraade", "Navn", "Ledige"])
 
     return result
-    # create_table(result, ["Rad", "Omraade", "Navn", "Ledige"]) #Printer resultatet
 
 def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer):
     datotid = localtime()
@@ -49,7 +47,11 @@ def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer):
     insert_into_table("billettkjop", [kjopsdato, kjopstid, mobilnummer])
       
     billetter = cursor.execute('''SELECT billettID from billett 
-                            WHERE mobilnummer is NULL AND rad = ? AND omraade = ? AND salnavn = ? LIMIT ?''', (rad, omraade, salnavn, antall))
+                            WHERE mobilnummer is NULL 
+                            AND rad = ? 
+                            AND omraade = ? 
+                            AND salnavn = ? 
+                            LIMIT ?''', (rad, omraade, salnavn, antall))
     
     billetter = billetter.fetchall()
     for billett in billetter:
@@ -70,8 +72,10 @@ def finn_pris(billetter, salnavn):
     cursor = con.cursor()
     for billett in billetter:
         billettID = billett[0]
-        cursor.execute('''SELECT pris FROM billettgruppe WHERE gruppe = 
-                       (SELECT billettgruppe FROM billett WHERE billettID = ?) AND stykkenavn = ?''', (billettID, stykke))
+        cursor.execute('''SELECT pris FROM billettgruppe 
+                       WHERE gruppe = 
+                       (SELECT billettgruppe FROM billett WHERE billettID = ?) 
+                       AND stykkenavn = ?''', (billettID, stykke))
         pris = cursor.fetchall()
         total_sum += pris[0][0]
     con.close()
@@ -99,7 +103,9 @@ def lag_kundeprofil(mobilnr, navn, adresse):
 def hent_billett_typer(stykkenavn):
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
-    billettpriser = cursor.execute('''SELECT gruppe, pris FROM billettgruppe WHERE stykkenavn = ?''', (stykkenavn, )).fetchall()
+    billettpriser = cursor.execute('''SELECT gruppe, pris 
+                                   FROM billettgruppe 
+                                   WHERE stykkenavn = ?''', (stykkenavn, )).fetchall()
     con.close()
     create_table(billettpriser, ["Gruppe", "Pris (kr)"])
     
