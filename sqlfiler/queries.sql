@@ -1,11 +1,11 @@
 --Oppgave 3
-select sete.rad, sete.omraade, sete.salnavn count(*) as c 
+select sete.rad, sete.omraade, sete.salnavn, count(*) as c 
 from billett FULL OUTER JOIN sete 
 ON (billett.setenr = sete.setenr 
 AND billett.rad = sete.rad 
 AND sete.omraade = billett.omraade
  AND billett.salnavn = sete.salnavn) 
-WHERE billettID is NULL AND sete.rad is NOT 'None'
+WHERE billettID is NULL AND sete.rad is not 'None'
  GROUP BY sete.rad, sete.omraade, sete.salnavn 
  HAVING c >=9;
 
@@ -25,7 +25,7 @@ INNER JOIN harrolle ON rolle.rolleID = harrolle.rolleID
 INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 
-oppgave 6
+--Oppgave 6
 
  SELECT teaterstykke, 
         dato, 
@@ -38,11 +38,7 @@ oppgave 6
  ORDER BY solgt DESC;
 
 
- oppgave 7
-
-Du skal lage et Pythonprogram (og sql) som tar et skuespillernavn og finner 
-hvilke skuespilllere de har spilt med i samme akt. Skriv ut navn på begge og 
-hvilket skuespill det skjedde.
+ --Oppgave 7
 
 
 SELECT DISTINCT a1.navn AS skuespiller1, a2.navn AS skuespiller2, akter.stykkenavn AS skuespill

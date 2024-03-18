@@ -6,7 +6,10 @@ from pythonfiler.oppg7 import *
 from utils import *
 velkommen_melding()
 
-#oppgave 1, 2 og 3 kjøres på forhånd med instruksjon fra readme-fil
+#oppgave 1 og 2 kjøres på forhånd med instruksjon fra readme-fil
+
+
+#oppgave 3
 teaterstykke = input("Hvilket stykke ønsker du å se (K/S)? ").lower()
 while "k" != teaterstykke and "s" != teaterstykke:
     print("Ugyldig svar, prøv igjen")
@@ -35,7 +38,7 @@ while not antall_billetter.isnumeric():
 antall_billetter = int(antall_billetter)
 
 hent_billett_typer(teaterstykke)
-type_billett = input("Hvilken type billett vil du kjøpe?")
+type_billett = input("Hvilken type billett vil du kjøpe? ")
 while not validate_billett_type(teaterstykke, type_billett):
     print("Ugyldig billettype, prøv igjen.")
     type_billett = input("Hvilken type billett vil du kjøpe?")
@@ -64,8 +67,8 @@ mobilnr = int(mobilnr)
 
 if not sjekk_om_kundeprofil_eksisterer(mobilnr):
     print("Vi ser at du er en ny kunde.")
-    navn = input("Vennligst oppgi navnet ditt? ")
-    adresse = input("Vennligst oppgi din adresse? ")
+    navn = input("Vennligst oppgi navnet ditt: ")
+    adresse = input("Vennligst oppgi din adresse: ")
     lag_kundeprofil(mobilnr, navn, adresse)
 pris = kjop_billetter(rad, antall_billetter, omraade, scene, type_billett, mobilnr)
 print(f"Billetter er kjøpt! Prisen ble {pris}kr.")
