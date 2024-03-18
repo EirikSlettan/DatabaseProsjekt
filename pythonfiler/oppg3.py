@@ -90,7 +90,6 @@ def sjekk_om_kundeprofil_eksisterer(mobilnr):
     for kundeprofil in kundeprofiler:
         if kundeprofil[0] == mobilnr:
             return True
-
     return False
 
 
