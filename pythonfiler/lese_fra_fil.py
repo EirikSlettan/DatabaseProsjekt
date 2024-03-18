@@ -159,9 +159,9 @@ def sette_inn_stoler_hovedscenen(file):
 
 
 
-sette_inn_stoler_gamle_scene("Tekstfiler/gamle-scene.txt")
+sette_inn_stoler_gamle_scene("tekstfiler/gamle-scene.txt")
             
-sette_inn_stoler_hovedscenen("Tekstfiler/hovedscenen.txt")
+sette_inn_stoler_hovedscenen("tekstfiler/hovedscenen.txt")
 
 
 
