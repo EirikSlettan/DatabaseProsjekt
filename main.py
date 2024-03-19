@@ -28,7 +28,7 @@ while not validate_date(dato):
 
 tid = input("Hvilken tid? ")
 while not validate_time(tid):
-    print("Ugyldig tid, prøv igjen.")
+    print("Ugyldig tid, prøv igjen. (Vi vet det bare er en tid, men vi vil åpne for videre funksjonalitet)")
     tid= input("Hvilken tid? ")
 
 antall_billetter = input("Hvor mange billetter vil du kjøpe? ")
@@ -46,7 +46,7 @@ while not validate_billett_type(teaterstykke, type_billett):
 print(f"Her er en oversikt over hvilke rader som har {antall_billetter} ledige seter.")
 ledige_rader = finn_ledige_rader(dato, tid, teaterstykke, antall_billetter)
 
-omraade  = input("Hvilket område hvil du sitte i? ")
+omraade  = input("Hvilket område vil du sitte i? ")
 while not verify_omraade(scene, omraade):
     print("Område finnes ikke i salen du har valgt, prøv igjen.")
     omraade = input("Hvilket område vil du sitte i? ")
