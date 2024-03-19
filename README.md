@@ -6,8 +6,11 @@ Dette er vårt prosjekt i TDT4145 Databaser og datamodellering Det følgende er 
 
 - Vi har antatt at Størst av alt er kjærligheten har én akt, som vi har kalt _hovedakt_, der alle skuespillere spiller i akten.
 - Vi har antatt at alle skuespillere i "Størst av alt er kjærligheten" spiller seg selv.
-- Vi har gjort om Billettkjopklassen til en svak klasse til kundeprofil.
-- Etc
+- Vi har gjort om Billettkjop til en svak klasse til kundeprofil.
+- Vi har gjort om Billettgruppe til en svak klasse til teaterstykke.
+- Vi har lagt til alle skuespillere fra Trøndelag Teater sin nettside. Videre har vi lagt inn aktene med roller etter tabellen nederst i oppgavebeskrivelsen slik at alle skuespillere og roller ikke nødvendigvis vil dukke opp i spørringer. F.eks i oppgave 5 vil Fabian mangle.
+- Vi har lagt inn alle spørringer i _sqlfiler/queries.sql_ for at du kan se de. Vi bruker ikke denne filen direkt, men har lagt spørringene inn i python-kode.
+- Vi velger å kun gjøre det mulig å kjøpe billetter 3. febraur slik oppgaven spør om. Kan enkelt legge til videre funksjonalitet for å kjøpe andre dager også. Siden oppgaven ikke ber om det, dropper vi det.
 
 ## Virkemåte
 
@@ -32,11 +35,13 @@ Og til slutt python-filen:
 
 ## Gå gjennom oppgavene
 
+NB: Her har vi lagt ved output du vil få ved å svare slik det står oppgitt i oppgavene.
+
 Etter å ha gjort "Komme i gang", kjører du main.py. Denne gjør følgende:
 
 - Etter å ha initialisert databasen er oppgave 1 og 2 fullført.
 
-- OPPGAVE 3!!!!!!!!!!!!!
+- Du vil få en rekke spørsmål knyttet til billettkjøp. Skriv inn ønskede dater.
 
 - Du vil først få spørsmål om du ønsker å se billetter solgt på en valgt dato. Dette er oppgave 4.
 

@@ -53,21 +53,25 @@ def sette_inn_stoler_gamle_scene(file):
 
                     if omraade == "Galleri":
                         sete_nr -=1
-
+                        billett_galleri = [billettID, None, None, None,  None,  sete_nr, galleri_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        insert_into_table("billett", billett_galleri)
                         sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
                     
                     elif omraade == "Balkong":
                         sete_nr -=1
-
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, balkong_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        insert_into_table("billett", billett_galleri)
                         sete_ledig_balkong = [sete_nr, balkong_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_balkong)
                     
                     elif omraade == "Parkett":
                         sete_nr -=1
-
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, parkett_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        insert_into_table("billett", billett_galleri)
                         sete_ledig_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
+                    billettID += 1
 
                 elif letter == "1": #Her er et sete kjøpt, og derfor vil en billettentitet også lages.
                     sete_nr -= 1
@@ -106,7 +110,7 @@ def sette_inn_stoler_hovedscenen(file):
     forestillingsdato = 0
     forestillingstid = "19:00:00"
     billettgruppe = "Ordinaer"
-    billettID = 28
+    billettID = 525
     billett_kjop = [kjopsdato, kjopstid, 99999999]
     insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
     f = open(file, "r")
@@ -126,20 +130,24 @@ def sette_inn_stoler_hovedscenen(file):
                     
                 elif letter == "0": #Ingen billetter er kjøpt her. Derfor opprettes kun seteentiteter, og ikke billettentiteter.
                     sete_nr -=1
-
                     if omraade == "Galleri":
-                        sete_ledig_galleri = [sete_nr, 'None', omraade, salnavn] 
+                        sete_ledig_galleri = [sete_nr, 0, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, None, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        insert_into_table("billett", billett_galleri)
 
                     else:
+                        billett_galleri = [billettID, None, None, None, None, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        insert_into_table("billett", billett_galleri)
                         sete_ledig_parkett = [sete_nr, rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
+                    billettID+=1
                 elif letter == "1": #Her er et sete kjøpt, og derfor vil en billettentitet også lages.
                     sete_nr -= 1
                     if omraade == "Galleri":
-                        sete_opptatt_galleri = [sete_nr, 'None', omraade, salnavn] 
+                        sete_opptatt_galleri = [sete_nr, 0, omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
-                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, 'None', omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, 0, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
                         insert_into_table("billett", billett_galleri)
                         billettID += 1
                         

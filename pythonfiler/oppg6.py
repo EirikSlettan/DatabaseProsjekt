@@ -10,7 +10,8 @@ def finn_billetter_solgt(): #Returnerer hvor mange billetter som har blitt solgt
         count(billettID) AS solgt 
  FROM (forestilling 
  FULL OUTER JOIN billett ON forestillingsdato = dato 
- AND forestillingstid = tid AND stykkenavn = teaterstykke) 
+ AND forestillingstid = tid AND stykkenavn = teaterstykke)
+ WHERE mobilnummer NOT NULL 
  GROUP by teaterstykke, dato, tid  
  ORDER BY solgt DESC;''')
     result = cursor.fetchall()

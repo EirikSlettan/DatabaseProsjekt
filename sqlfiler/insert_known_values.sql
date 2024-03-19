@@ -82,7 +82,7 @@ INSERT INTO rolle VALUES (10, 'Paal Flida');
 INSERT INTO rolle VALUES (11, 'Baard Bratte');
 INSERT INTO rolle VALUES (12, 'Trønder');
 INSERT INTO rolle VALUES (13, 'Jatgeir Skald');
-INSERT INTO rolle VALUES (14, 'Dagdfinn Bonde');
+INSERT INTO rolle VALUES (14, 'Dagfinn Bonde');
 INSERT INTO rolle VALUES (15, 'Peter (Prest og Ingebjørgs sønn)');
 
 INSERT INTO harrolle VALUES (1, 1);
@@ -161,7 +161,7 @@ INSERT INTO aktharrolle VALUES (15, 4, 'Kongsemnene'); --Peter
 INSERT INTO aktharrolle VALUES (15, 5, 'Kongsemnene'); --Peter
 
 
-INSERT INTO billettgruppe VALUES ('Ordinær', 450, 'Kongsemnene');
+INSERT INTO billettgruppe VALUES ('Ordinaer', 450, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Honnor', 380, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Student', 280, 'Kongsemnene');
 INSERT INTO billettgruppe VALUES ('Gruppe 10', 420, 'Kongsemnene');
@@ -221,8 +221,8 @@ INSERT INTO rolle VALUES (17, 'Jo Saberniak');
 INSERT INTO rolle VALUES (18, 'Marte M. Steinholt');
 INSERT INTO rolle VALUES (19, 'Tor Ivar Hagen');
 INSERT INTO rolle VALUES (20, 'Trond-Ove Skrødal');
-INSERT INTO rolle VALUES (21, 'Natalie Grøndahl');
-INSERT INTO rolle VALUES (22, 'Tangen Åsmund Flaten');
+INSERT INTO rolle VALUES (21, 'Natalie Grøndahl Tangen');
+INSERT INTO rolle VALUES (22, 'Åsmund Flaten');
 
 INSERT INTO harrolle VALUES (17, 16);
 INSERT INTO harrolle VALUES (18, 17);
@@ -232,7 +232,7 @@ INSERT INTO harrolle VALUES (21, 20);
 INSERT INTO harrolle VALUES (22, 21);
 INSERT INTO harrolle VALUES (23, 22);
 
-INSERT INTO billettgruppe VALUES ('Ordinær', 350, 'Storst av alt er kjaerligheten');
+INSERT INTO billettgruppe VALUES ('Ordinaer', 350, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Honnor', 300, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Student', 220, 'Storst av alt er kjaerligheten');
 INSERT INTO billettgruppe VALUES ('Barn', 220, 'Storst av alt er kjaerligheten');
