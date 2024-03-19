@@ -1,17 +1,51 @@
 --Oppgave 3
-select sete.rad, sete.omraade, sete.salnavn, count(*) as c 
-from billett FULL OUTER JOIN sete 
+SELECT dato, tid, teaterstykke 
+FROM forestilling 
+WHERE teaterstykke = ? 
+ORDER BY dato, tid DESC;
+
+select sete.rad, sete.omraade, sete.salnavn, count(billettID) as c 
+from (billett INNER JOIN sete 
 ON (billett.setenr = sete.setenr 
 AND billett.rad = sete.rad 
 AND sete.omraade = billett.omraade
- AND billett.salnavn = sete.salnavn) 
-WHERE billettID is NULL AND sete.rad is not 'None'
+ AND billett.salnavn = sete.salnavn)) 
+INNER JOIN forestilling 
+ ON billett.forestillingsdato = forestilling.dato
+ AND billett.forestillingstid = forestilling.tid
+ AND billett.stykkenavn = forestilling.teaterstykke
+WHERE mobilnummer is NULL 
+AND forestilling.dato = ?
+AND forestilling.tid = ?
+AND forestilling.teaterstykke = ?
  GROUP BY sete.rad, sete.omraade, sete.salnavn 
- HAVING c >=9;
+ HAVING c >=? ORDER BY sete.omraade, sete.rad ASC;
 
+SELECT billettID from billett 
+WHERE mobilnummer is NULL 
+AND rad = ? 
+AND omraade = ? 
+AND salnavn = ? 
+LIMIT ?;
+
+UPDATE billett  SET 
+kjopsdato = ?, 
+kjopstid = ?, 
+mobilnummer = ?, 
+billettgruppe = ? 
+WHERE billettID = ?;
+
+SELECT pris FROM billettgruppe 
+WHERE gruppe = (SELECT billettgruppe FROM billett WHERE billettID = ?) 
+AND stykkenavn = ?;
+
+SELECT mobilnummer FROM kundeprofil;
+
+SELECT gruppe, pris 
+FROM billettgruppe 
+WHERE stykkenavn = ?;
 
 --Oppgave 5
-
 SELECT DISTINCT teaterstykke.navn AS stykke, 
         ansatt.navn AS skuespiller, 
         rolle.rollenavn AS rolle
@@ -26,7 +60,6 @@ INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 
 --Oppgave 6
-
  SELECT teaterstykke, 
         dato, 
         tid,
@@ -39,8 +72,6 @@ INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 
  --Oppgave 7
-
-
 SELECT DISTINCT a1.navn AS skuespiller1, a2.navn AS skuespiller2, akter.stykkenavn AS skuespill
 FROM ansatt AS a1
 INNER JOIN harrolle AS hr1 ON a1.ansattID = hr1.ansattID
