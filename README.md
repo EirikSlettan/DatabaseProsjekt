@@ -34,6 +34,8 @@ Og til slutt python-filene:
 - lese_fra_fil.py
 - main.py
 
+NB: lese_fra_fil.py vil ta en stund å kjøre (opp til 30 sek). Ikke fortvil!
+
 ## Gå gjennom oppgavene
 
 NB: Her har vi lagt ved output du vil få ved å svare slik det står oppgitt i oppgavene.

@@ -26,7 +26,7 @@ while not validate_date(dato):
     dato= input("Hvilken dato? ")
     
 
-tid = input("Hvilken tid? (Vi vet det bare er en tid, men vi vil åpne for videre funksjonalitet)")
+tid = input("Hvilken tid? (Vi vet det bare er en tid, men vi vil åpne for videre funksjonalitet) ")
 while not validate_time(tid):
     print("Ugyldig tid, prøv igjen.")
     tid= input("Hvilken tid? ")

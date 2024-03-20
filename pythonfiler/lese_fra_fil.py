@@ -120,7 +120,7 @@ def sette_inn_stoler_hovedscenen(file):
     forestillingsdato = 0
     forestillingstid = "19:00:00"
     billettgruppe = "Ordinaer"
-    billettID = 1688
+    billettID = 1993
     billett_kjop = [kjopsdato, kjopstid, 99999999]
     insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
     forestillingsdatoer = ["2024-02-03", "2024-02-01", "2024-02-02", "2024-02-05", "2024-02-06"]
