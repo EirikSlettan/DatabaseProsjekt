@@ -26,9 +26,9 @@ while not validate_date(dato):
     dato= input("Hvilken dato? ")
     
 
-tid = input("Hvilken tid? ")
+tid = input("Hvilken tid? (Vi vet det bare er en tid, men vi vil åpne for videre funksjonalitet) ")
 while not validate_time(tid):
-    print("Ugyldig tid, prøv igjen. (Vi vet det bare er en tid, men vi vil åpne for videre funksjonalitet)")
+    print("Ugyldig tid, prøv igjen.")
     tid= input("Hvilken tid? ")
 
 antall_billetter = input("Hvor mange billetter vil du kjøpe? ")
@@ -70,7 +70,7 @@ if not sjekk_om_kundeprofil_eksisterer(mobilnr):
     navn = input("Vennligst oppgi navnet ditt: ")
     adresse = input("Vennligst oppgi din adresse: ")
     lag_kundeprofil(mobilnr, navn, adresse)
-pris = kjop_billetter(rad, antall_billetter, omraade, scene, type_billett, mobilnr)
+pris = kjop_billetter(rad, antall_billetter, omraade, scene, type_billett, mobilnr, dato, tid)
 print(f"Billetter er kjøpt! Prisen ble {pris}kr.")
 
 #oppgave 4:

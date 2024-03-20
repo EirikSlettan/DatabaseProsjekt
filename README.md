@@ -2,7 +2,7 @@
 
 ## Introduksjon
 
-Dette er vårt prosjekt i TDT4145 Databaser og datamodellering Det følgende er antagelser vi har vært nødt til å gjøre ettersom det ikke var spesifisert godt nok i oppgave beskrivelsen:
+Dette er vårt prosjekt i TDT4145 Databaser og datamodellering. Følgende antagelser har vi gjort for å spesifisere tankegangen vår bak løsningen, der vi følte at oppgavebeskrivelsen kan tolkes på flere måter.
 
 - Vi har antatt at Størst av alt er kjærligheten har én akt, som vi har kalt _hovedakt_, der alle skuespillere spiller i akten.
 - Vi har antatt at alle skuespillere i "Størst av alt er kjærligheten" spiller seg selv.
@@ -10,7 +10,7 @@ Dette er vårt prosjekt i TDT4145 Databaser og datamodellering Det følgende er 
 - Vi har gjort om Billettgruppe til en svak klasse til teaterstykke.
 - Vi har lagt til alle skuespillere fra Trøndelag Teater sin nettside. Videre har vi lagt inn aktene med roller etter tabellen nederst i oppgavebeskrivelsen slik at alle skuespillere og roller ikke nødvendigvis vil dukke opp i spørringer. F.eks i oppgave 5 vil Fabian mangle.
 - Vi har lagt inn alle spørringer i _sqlfiler/queries.sql_ for at du kan se de. Vi bruker ikke denne filen direkt, men har lagt spørringene inn i python-kode.
-- Vi velger å kun gjøre det mulig å kjøpe billetter 3. febraur slik oppgaven spør om. Kan enkelt legge til videre funksjonalitet for å kjøpe andre dager også. Siden oppgaven ikke ber om det, dropper vi det.
+
 
 ## Virkemåte
 
@@ -29,9 +29,12 @@ Alternativt kan man selv initialisere databasen ved å kjøre sql-scriptene:
 - schema.sql
 - insert_known_values.sql
 
-Og til slutt python-filen:
+Og til slutt python-filene:
 
 - lese_fra_fil.py
+- main.py
+
+NB: lese_fra_fil.py vil ta en stund å kjøre (opp til 30 sek). Ikke fortvil!
 
 ## Gå gjennom oppgavene
 
