@@ -2,6 +2,15 @@ from datetime import*
 from time import *
 from insert_into import *
 
+def opprett_billetter(billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe, sete_nr, rad_nr,omraade,salnavn, ignore, forestillingstid,stykkenavn, forestillingsdatoer):
+    for i in range(1, len(forestillingsdatoer)):
+        insert_into_table("billett", [billettID, None, None, None,  None,  sete_nr, rad_nr, omraade, salnavn, forestillingsdatoer[i], forestillingstid, stykkenavn])
+        billettID +=1
+    if mobilnummer:
+        insert_into_table("billett", [billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe, sete_nr, rad_nr,omraade,salnavn,forestillingsdatoer[0],forestillingstid,stykkenavn] )
+        billettID += 1
+    return billettID
+
 
 
 def sette_inn_stoler_gamle_scene(file):
@@ -19,6 +28,7 @@ def sette_inn_stoler_gamle_scene(file):
     billettID = 1
     billett_kjop = [kjopsdato, kjopstid, 99999999]
     insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
+    forestillingsdatoer = ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-05", "2024-02-06"]
     
     f = open(file, "r")
     omraade = ""
@@ -53,49 +63,45 @@ def sette_inn_stoler_gamle_scene(file):
 
                     if omraade == "Galleri":
                         sete_nr -=1
-                        billett_galleri = [billettID, None, None, None,  None,  sete_nr, galleri_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_galleri)
+                        billett= [billettID, None, None, None,  None,  sete_nr, galleri_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billettID = opprett_billetter(*billett, forestillingsdatoer)
                         sete_ledig_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
                     
                     elif omraade == "Balkong":
                         sete_nr -=1
-                        billett_galleri = [billettID, None, None, None, None, sete_nr, balkong_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_galleri)
+                        billett= [billettID, None, None, None, None, sete_nr, balkong_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billettID = opprett_billetter(*billett, forestillingsdatoer)
                         sete_ledig_balkong = [sete_nr, balkong_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_balkong)
                     
                     elif omraade == "Parkett":
                         sete_nr -=1
-                        billett_galleri = [billettID, None, None, None, None, sete_nr, parkett_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_galleri)
+                        billett = [billettID, None, None, None, None, sete_nr, parkett_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billettID = opprett_billetter(*billett, forestillingsdatoer)
                         sete_ledig_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
-                    billettID += 1
 
                 elif letter == "1": #Her er et sete kjøpt, og derfor vil en billettentitet også lages.
                     sete_nr -= 1
                     if omraade == "Galleri":
                         sete_opptatt_galleri = [sete_nr, galleri_rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
-                        billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe,sete_nr, galleri_rad_nr,omraade,salnavn,forestillingsdato,forestillingstid,stykkenavn]
-                        insert_into_table("billett", billett_galleri)
-                        billettID += 1
+                        billett = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe,sete_nr, galleri_rad_nr,omraade,salnavn,forestillingsdato,forestillingstid,stykkenavn]
+                        billettID = opprett_billetter(*billett, forestillingsdatoer)
                     
                     elif omraade == "Balkong":
                         sete_opptatt_balkong = [sete_nr,balkong_rad_nr,omraade,salnavn] 
                         insert_into_table("sete", sete_opptatt_balkong)
                         
-                        billett_balkong = [billettID,kjopsdato,kjopstid,99999999,billettgruppe,sete_nr,balkong_rad_nr,omraade,salnavn,forestillingsdato,forestillingstid,stykkenavn] 
-                        insert_into_table("billett", billett_balkong)
-                        billettID += 1
+                        billett = [billettID,kjopsdato,kjopstid,99999999,billettgruppe,sete_nr,balkong_rad_nr,omraade,salnavn,forestillingsdato,forestillingstid,stykkenavn] 
+                        billettID = opprett_billetter(*billett, forestillingsdatoer)
                     
                     elif omraade == "Parkett":
                         sete_opptatt_parkett = [sete_nr, parkett_rad_nr, omraade, salnavn]
                         insert_into_table("sete", sete_opptatt_parkett)
-                        billett_parkett = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, parkett_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn]
-                        insert_into_table("billett", billett_parkett)
-                        billettID += 1
+                        billett = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, parkett_rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn]
+                        billettID = opprett_billetter(*billett, forestillingsdatoer)
 
                         
                         
@@ -169,7 +175,7 @@ def sette_inn_stoler_hovedscenen(file):
 
 sette_inn_stoler_gamle_scene("Tekstfiler/gamle-scene.txt")
             
-sette_inn_stoler_hovedscenen("Tekstfiler/hovedscenen.txt")
+#sette_inn_stoler_hovedscenen("Tekstfiler/hovedscenen.txt")
 
 
 
