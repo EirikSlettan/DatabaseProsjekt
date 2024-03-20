@@ -7,8 +7,12 @@ def opprett_billetter(billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe
         insert_into_table("billett", [billettID, None, None, None,  None,  sete_nr, rad_nr, omraade, salnavn, forestillingsdatoer[i], forestillingstid, stykkenavn])
         billettID +=1
     if mobilnummer:
-        insert_into_table("billett", [billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe, sete_nr, rad_nr,omraade,salnavn,forestillingsdatoer[0],forestillingstid,stykkenavn] )
+        insert_into_table("billett", [billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe, sete_nr, rad_nr, omraade,salnavn,forestillingsdatoer[0], forestillingstid,stykkenavn] )
         billettID += 1
+    else:
+        insert_into_table("billett", [billettID, None, None, None,  None,  sete_nr, rad_nr, omraade, salnavn, forestillingsdatoer[0], forestillingstid, stykkenavn])
+        billettID += 1
+        
     return billettID
 
 
@@ -119,7 +123,7 @@ def sette_inn_stoler_hovedscenen(file):
     billettID = 5000
     billett_kjop = [kjopsdato, kjopstid, 99999999]
     insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
-    forestillingsdatoer = ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-05", "2024-02-06"]
+    forestillingsdatoer = ["2024-02-03", "2024-02-01", "2024-02-02", "2024-02-05", "2024-02-06"]
 
     f = open(file, "r")
     omraade = ""
