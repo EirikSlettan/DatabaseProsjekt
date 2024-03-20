@@ -5,9 +5,9 @@ def finn_forestillinger(dato):
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
     
-    cursor.execute('''SELECT tid, dato, teaterstykke, count(billettID) AS  antall 
+    cursor.execute('''SELECT tid, dato, teaterstykke, count(mobilnummer) AS  antall 
                    FROM(forestilling FULL OUTER JOIN billett ON stykkenavn = teaterstykke AND tid = forestillingstid AND dato = forestillingsdato) 
-                   WHERE dato = ? AND mobilnummer NOT NULL GROUP BY tid, dato, stykkenavn;''',  (dato,))
+                   WHERE dato = ? GROUP BY tid, dato, stykkenavn;''',  (dato,))
     result = cursor.fetchall()
     
     con.close()
