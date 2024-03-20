@@ -26,7 +26,9 @@ WHERE mobilnummer is NULL
 AND rad = ? 
 AND omraade = ? 
 AND salnavn = ? 
-LIMIT ?;
+AND forestillingsdato = ?
+ AND forestillingstid = ?
+ LIMIT ?;
 
 UPDATE billett  SET 
 kjopsdato = ?, 
@@ -45,6 +47,16 @@ SELECT gruppe, pris
 FROM billettgruppe 
 WHERE stykkenavn = ?;
 
+--Oppgave 4
+SELECT tid, dato, teaterstykke, count(mobilnummer) AS  antall 
+FROM(forestilling 
+FULL OUTER JOIN billett 
+ON stykkenavn = teaterstykke 
+AND tid = forestillingstid 
+AND dato = forestillingsdato) 
+WHERE dato = ? 
+GROUP BY tid, dato, stykkenavn
+
 --Oppgave 5
 SELECT DISTINCT teaterstykke.navn AS stykke, 
         ansatt.navn AS skuespiller, 
@@ -60,15 +72,9 @@ INNER JOIN ansatt ON ansatt.ansattID = harrolle.ansattID
 
 
 --Oppgave 6
- SELECT teaterstykke, 
-        dato, 
-        tid,
-        count(billettID) AS solgt 
- FROM (forestilling 
- FULL OUTER JOIN billett ON forestillingsdato = dato 
- AND forestillingstid = tid AND stykkenavn = teaterstykke) 
- GROUP by teaterstykke, dato, tid  
- ORDER BY solgt DESC;
+SELECT tid, dato, teaterstykke, count(mobilnummer) AS  antall 
+FROM(forestilling FULL OUTER JOIN billett ON stykkenavn = teaterstykke AND tid = forestillingstid AND dato = forestillingsdato) 
+ WHERE dato = ? GROUP BY tid, dato, stykkenavn;
 
 
  --Oppgave 7

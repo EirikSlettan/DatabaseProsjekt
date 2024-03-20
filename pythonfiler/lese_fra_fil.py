@@ -7,8 +7,12 @@ def opprett_billetter(billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe
         insert_into_table("billett", [billettID, None, None, None,  None,  sete_nr, rad_nr, omraade, salnavn, forestillingsdatoer[i], forestillingstid, stykkenavn])
         billettID +=1
     if mobilnummer:
-        insert_into_table("billett", [billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe, sete_nr, rad_nr,omraade,salnavn,forestillingsdatoer[0],forestillingstid,stykkenavn] )
+        insert_into_table("billett", [billettID, kjopsdato, kjopstid, mobilnummer, billettgruppe, sete_nr, rad_nr, omraade,salnavn,forestillingsdatoer[0], forestillingstid,stykkenavn] )
         billettID += 1
+    else:
+        insert_into_table("billett", [billettID, None, None, None,  None,  sete_nr, rad_nr, omraade, salnavn, forestillingsdatoer[0], forestillingstid, stykkenavn])
+        billettID += 1
+        
     return billettID
 
 
