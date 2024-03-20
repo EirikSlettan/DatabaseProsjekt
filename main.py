@@ -70,7 +70,7 @@ if not sjekk_om_kundeprofil_eksisterer(mobilnr):
     navn = input("Vennligst oppgi navnet ditt: ")
     adresse = input("Vennligst oppgi din adresse: ")
     lag_kundeprofil(mobilnr, navn, adresse)
-pris = kjop_billetter(rad, antall_billetter, omraade, scene, type_billett, mobilnr)
+pris = kjop_billetter(rad, antall_billetter, omraade, scene, type_billett, mobilnr, dato, tid)
 print(f"Billetter er kjøpt! Prisen ble {pris}kr.")
 
 #oppgave 4:

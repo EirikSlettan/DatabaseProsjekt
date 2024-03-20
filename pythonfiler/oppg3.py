@@ -37,7 +37,7 @@ AND forestilling.teaterstykke = ?
 
     return result
 
-def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer):
+def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer, dato, tid):
     datotid = localtime()
     con = sqlite3.connect("teater_database.db")
     cursor = con.cursor()
@@ -51,7 +51,9 @@ def kjop_billetter(rad, antall, omraade, salnavn, type_billett, mobilnummer):
                             AND rad = ? 
                             AND omraade = ? 
                             AND salnavn = ? 
-                            LIMIT ?''', (rad, omraade, salnavn, antall))
+                            AND forestillingsdato = ?
+                            AND forestillingstid = ?
+                            LIMIT ?''', (rad, omraade, salnavn, dato, tid, antall))
     
     billetter = billetter.fetchall()
     for billett in billetter:

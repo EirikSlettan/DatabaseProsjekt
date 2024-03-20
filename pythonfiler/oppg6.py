@@ -15,4 +15,6 @@ def finn_billetter_solgt(): #Returnerer hvor mange billetter som har blitt solgt
  GROUP by teaterstykke, dato, tid  
  ORDER BY solgt DESC;''')
     result = cursor.fetchall()
+    con.close()
     create_table(result, ["Teaterstykke", "Dato", "Tid", "Solgt"])
+    
