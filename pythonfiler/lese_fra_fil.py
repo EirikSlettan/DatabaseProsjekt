@@ -28,7 +28,7 @@ def sette_inn_stoler_gamle_scene(file):
     billettID = 1
     billett_kjop = [kjopsdato, kjopstid, 99999999]
     insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
-    forestillingsdatoer = ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-05", "2024-02-06"]
+    forestillingsdatoer = ["2024-02-03", "2024-02-06", "2024-02-07", "2024-02-12", "2024-02-13", "2024-02-14"]
     
     f = open(file, "r")
     omraade = ""
@@ -116,9 +116,11 @@ def sette_inn_stoler_hovedscenen(file):
     forestillingsdato = 0
     forestillingstid = "19:00:00"
     billettgruppe = "Ordinaer"
-    billettID = 525
+    billettID = 5000
     billett_kjop = [kjopsdato, kjopstid, 99999999]
     insert_into_table("billettkjop", billett_kjop) #Legger inn billettkjøpentiteter i entitetsklassen billettkjop (Samme for resten som bruker insert_into_table).
+    forestillingsdatoer = ["2024-02-01", "2024-02-02", "2024-02-03", "2024-02-05", "2024-02-06"]
+
     f = open(file, "r")
     omraade = ""
     for line in f: #Leser gjennom hver linje i fila
@@ -140,22 +142,22 @@ def sette_inn_stoler_hovedscenen(file):
                         sete_ledig_galleri = [sete_nr, 0, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_galleri)
                         billett_galleri = [billettID, None, None, None, None, sete_nr, None, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_galleri)
+                        billettID = opprett_billetter(*billett_galleri, forestillingsdatoer)
 
                     else:
-                        billett_galleri = [billettID, None, None, None, None, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_galleri)
+                        billett_parkett = [billettID, None, None, None, None, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
+                        billettID = opprett_billetter(*billett_parkett, forestillingsdatoer)
                         sete_ledig_parkett = [sete_nr, rad_nr, omraade, salnavn] 
                         insert_into_table("sete", sete_ledig_parkett)
-                    billettID+=1
+
+                   
                 elif letter == "1": #Her er et sete kjøpt, og derfor vil en billettentitet også lages.
                     sete_nr -= 1
                     if omraade == "Galleri":
                         sete_opptatt_galleri = [sete_nr, 0, omraade, salnavn] 
                         insert_into_table("sete", sete_opptatt_galleri)
                         billett_galleri = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, 0, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_galleri)
-                        billettID += 1
+                        billettID = opprett_billetter(*billett_galleri, forestillingsdatoer)
                         
                     else:
                         sete_opptatt_parkett = [sete_nr, rad_nr, omraade, salnavn] 
@@ -163,7 +165,7 @@ def sette_inn_stoler_hovedscenen(file):
                         
                         
                         billett_parkett = [billettID, kjopsdato, kjopstid, 99999999, billettgruppe, sete_nr, rad_nr, omraade, salnavn, forestillingsdato, forestillingstid, stykkenavn] #BILLETT!!!
-                        insert_into_table("billett", billett_parkett)
+                        billettID = opprett_billetter(*billett_parkett, forestillingsdatoer)
 
                         billettID += 1
             if omraade != "Galleri":
@@ -175,7 +177,7 @@ def sette_inn_stoler_hovedscenen(file):
 
 sette_inn_stoler_gamle_scene("Tekstfiler/gamle-scene.txt")
             
-#sette_inn_stoler_hovedscenen("Tekstfiler/hovedscenen.txt")
+sette_inn_stoler_hovedscenen("Tekstfiler/hovedscenen.txt")
 
 
 
